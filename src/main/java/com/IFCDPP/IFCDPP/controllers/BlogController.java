@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.IFCDPP.IFCDPP.repo.PostRepository;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BlogController {
@@ -20,4 +22,15 @@ public class BlogController {
     return "blog-main";
     }
 
+    @GetMapping("/blog/add")
+    public String blogAdd(Model model){
+        return "blog-add";
+    }
+
+    @PostMapping("/blod/add")
+    public String blogPostAdd(@RequestParam String title, @RequestParam String text){
+        Post post =new Post(title, text);
+        postRepository.save(post);
+        return "redirect:/blog";
+    }
 }
