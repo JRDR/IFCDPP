@@ -1,23 +1,25 @@
-package com.IFCDPP.IFCDPP.controllers;
+package com.ifcdpp.ifcdpp.controllers;
 
-import com.IFCDPP.IFCDPP.models.Post;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ifcdpp.ifcdpp.models.Post;
+import com.ifcdpp.ifcdpp.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import com.IFCDPP.IFCDPP.repo.PostRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
+@RequiredArgsConstructor
 public class BlogController {
 
-    @Autowired
-    private PostRepository postRepository;
+    private final PostService postService;
 
     @GetMapping("/blog")
     public String blogMain(Model model){
-    Iterable<Post> posts = postRepository.findAll();
+    List<Post> posts = postService.getAllPosts();
     model.addAttribute("posts",posts);
     return "blog-main";
     }
@@ -27,10 +29,9 @@ public class BlogController {
         return "blog-add";
     }
 
-    @PostMapping("/blod/add")
+    @PostMapping("/blog/add")
     public String blogPostAdd(@RequestParam String title, @RequestParam String text){
-        Post post =new Post(title, text);
-        postRepository.save(post);
+        postService.savePost(title, text);
         return "redirect:/blog";
     }
 }

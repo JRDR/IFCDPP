@@ -1,4 +1,4 @@
-package com.IFCDPP.IFCDPP.controllers;
+package com.ifcdpp.ifcdpp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
