@@ -1,6 +1,5 @@
-package models;
+package com.IFCDPP.IFCDPP.models;
 
-import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +12,8 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title, text;
+    private String title;
+    private String text;
     private int views;
 
     public Long getId() {
