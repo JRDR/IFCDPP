@@ -1,4 +1,4 @@
-package com.ifcdpp.ifcdpp;
+package com.IFCDPP.IFCDPP;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

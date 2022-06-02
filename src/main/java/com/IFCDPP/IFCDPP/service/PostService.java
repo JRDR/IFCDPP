@@ -1,8 +1,8 @@
-package com.ifcdpp.ifcdpp.service;
+package com.IFCDPP.IFCDPP.service;
 
-import com.ifcdpp.ifcdpp.entity.PostEntity;
-import com.ifcdpp.ifcdpp.models.Post;
-import com.ifcdpp.ifcdpp.repo.PostRepository;
+import com.IFCDPP.IFCDPP.entity.PostEntity;
+import com.IFCDPP.IFCDPP.models.Post;
+import com.IFCDPP.IFCDPP.repo.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

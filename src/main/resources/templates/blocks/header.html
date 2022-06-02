@@ -1,15 +1,11 @@
     <div th:fragment="header">
 
-<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <span class ="fs-4">IFCDPP</span>
-    </a>
-
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/blog">Блог</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/blog/add">Добавить запись</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/about">Про нас</a>
-    </nav>
+<div class = header>
+        <a href="/"><img th:src="@{/img/testlogo.png}" alt="logo"></a>
+    <div class ="headermenu">
+        <a href="/blog">Блог</a>
+        <a href="/blog/add">Добавить запись</a>
+        <a href="/about">Про нас</a>
+    </div>
 </div>
     </div>

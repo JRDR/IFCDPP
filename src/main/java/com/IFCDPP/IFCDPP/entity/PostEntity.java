@@ -1,4 +1,4 @@
-package com.ifcdpp.ifcdpp.entity;
+package com.IFCDPP.IFCDPP.entity;
 
 import lombok.*;
 
