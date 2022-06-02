@@ -1,11 +1,18 @@
     <div th:fragment="header">
 
-<div class = header>
-        <a href="/"><img th:src="@{/img/testlogo.png}" alt="logo"></a>
-    <div class ="headermenu">
-        <a href="/blog">Блог</a>
-        <a href="/blog/add">Добавить запись</a>
-        <a href="/about">Про нас</a>
+<div class = "header">
+        <a id="logolink" href="/"><img class="logo" th:src="@{/img/testlogo.png}" alt="logo"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a id="catalog" href="/blog">КАТАЛОГ</a></li>
+                <li><a href="/blog/add">О НАС</a></li>
+                <li><a href="/about">ПОДДЕРЖКА</a></li>
+            </ul>
+        </nav>
+    <div class = registration>
+    <a class="reg" href="/"><button>РЕГИСТРАЦИЯ</button></a>
+        <a class ="autho" href="/"><button>Вход</button></a>
     </div>
 </div>
+
     </div>
