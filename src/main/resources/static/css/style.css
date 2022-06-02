@@ -1,35 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
 .header {
   height:90px;
   display:flex;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   align-items: center;
-  padding: 20px 10%;
+  /*padding: 20px 10%;*/
+  padding-left: 10%;
+  padding-top: 15px;
+  padding-bottom: 5px;
   background-color: #565C5E;
 }
 
 li, a, button{
-font-weight:500;
+font-family: 'Russo One', sans-serif;
+font-weight:400;
 font-size:18px;
 color:#E0EFF4;
 text-decoration:none;
 }
 
 #logolink{
+
 }
 
 .logo {
 cursor: pointer;
 height:90px;
 width:90px;
-margin-left:150%;
+margin-left:0%;
+padding:0px;
 }
 
 .nav-links{
+padding-right: 5px;
 list-style:none;
 }
 .nav-links li{
 display:inline-block;
 padding:0px 20px;
+}
+
+.logoblock{
+padding-right: 15px;
 }
 
 
@@ -42,24 +55,32 @@ cursor:pointer;
 }
 
 #catalog{
-font-size:24px;
-font-weight:600;
-margin-left:-60px;
+font-size:18px;
+font-weight:400;
+margin-left:0px;
 }
 
 .autho {
+   color:#A7D3C8;
+   font-size:14px;
    display: block;
    text-align: center;
 }
 
-@media screen and (max-width: 1240px) {
+.registration{
+padding-top: 13px;
+}
+
+
+
+@media screen and (max-width: 500px) {
   .header li {
-    float: none;
     display: block;
     text-align: left;
   }
-  #catalog{margin-left:0px;
+  #catalog{
+  margin-left:0px;
   }
   .logo{
-  margin-left:10%;}
+  margin-left:0%;}
   }

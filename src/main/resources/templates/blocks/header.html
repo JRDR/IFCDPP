@@ -1,8 +1,10 @@
     <div th:fragment="header">
 
 <div class = "header">
+        <div class="logoblock">
         <a id="logolink" href="/"><img class="logo" th:src="@{/img/testlogo.png}" alt="logo"></a>
-        <nav>
+        </div>
+        <nav class ="navig">
             <ul class="nav-links">
                 <li><a id="catalog" href="/blog">КАТАЛОГ</a></li>
                 <li><a href="/blog/add">О НАС</a></li>
@@ -11,7 +13,7 @@
         </nav>
     <div class = registration>
     <a class="reg" href="/"><button>РЕГИСТРАЦИЯ</button></a>
-        <a class ="autho" href="/"><button>Вход</button></a>
+        <a id ="autho" class ="autho" href="/">Вход</a>
     </div>
 </div>
 
