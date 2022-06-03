@@ -129,3 +129,52 @@ height:50px
 /*.....*/
 /*.....*/
 /*.....*/
+
+registration{
+display:flex;
+padding: 10px;
+height:70vh;
+justify-content:center;
+align-items:center;
+background-color:#DFDBD8;
+}
+
+.registration-container{
+max-width:700px;
+width: 100%;
+background-color:#686E70;
+padding: 25px 30px;
+}
+
+.registration-container .title{
+font-family: 'Russo One', sans-serif;
+font-weight:400;
+font-size:18px;
+color:#E0EFF4;
+text-decoration:none;
+}
+
+/*.registration-container .title::before{
+content: '';
+position:absolute;
+left:0;
+bottom:0;
+height:3px;
+width:30px;
+background:#E0EFF4;
+}*/
+
+.registration-container form .user-details{
+display:flex;
+flex-wrap:wrap;
+justify-content: space-between;
+}
+
+form .user-details .input-box{
+width: calc(100% / 2 - 20px);
+}
+
+.user-details .input-box input{
+height: 45px;
+width: 100%;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<registration>
+<div class="registration-container">
+
+    <div class="title">Регистрация</div>
+
+    <form action="#">
+        <div class="user-details">
+
+            <div class="input-box">
+                <span class="details">Имя</span>
+                <input type="text" placeholder="Введите имя" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">E-mail</span>
+                <input type="text" placeholder="Введите e-mail" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Пароль</span>
+                <input type="text" placeholder="Придумайте пароль" required>
+            </div>
+
+            <div class="input-box">
+                <span class="details">Подтвердите пароль</span>
+                <input type="text" placeholder="Повторите пароль" required>
+            </div>
+        </div>
+            </form>
+
+        <div class ="confirm">
+            <input type ="submit" value="register">
+        </div>
+    </div>
+
+</registration>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>
