@@ -15,34 +15,34 @@
 
     <div class="title">Регистрация</div>
 
-    <form action="#">
+    <form th:action="@{/reg}" method="post">
         <div class="user-details">
 
             <div class="input-box">
                 <span class="details">Имя</span>
-                <input type="text" placeholder="Введите имя" required>
+                <input type="text" placeholder="Введите имя" required name="login">
             </div>
 
             <div class="input-box">
                 <span class="details">E-mail</span>
-                <input type="text" placeholder="Введите e-mail" required>
+                <input type="email" placeholder="Введите e-mail" required name="email">
             </div>
 
             <div class="input-box">
                 <span class="details">Пароль</span>
-                <input type="text" placeholder="Придумайте пароль" required>
+                <input type="password" placeholder="Придумайте пароль" required name="password">
             </div>
 
             <div class="input-box">
                 <span class="details">Подтвердите пароль</span>
-                <input type="text" placeholder="Повторите пароль" required>
+                <input type="password" placeholder="Повторите пароль" required name="confirm">
             </div>
         </div>
-            </form>
-
         <div class ="confirm">
             <button type ="submit" value="register">ЗАВЕРШИТЬ</button>
         </div>
+            </form>
+
         <div class="reg-autho">
             <a href="/login">Уже зарегистрированы?</a>
         </div>

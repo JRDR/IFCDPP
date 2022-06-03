@@ -10,6 +10,14 @@
 <header th:insert="blocks/header :: header"></header>
 
 <main>
+    <div sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div sec:authorize="isAnonymous()">
+        Вы не вошли
+    </div>
 <p> Main PageMain Page</p>
     <br><br><br><br><br>
     <p> Main PageMain Page</p>

@@ -1,4 +1,4 @@
-package com.IFCDPP.IFCDPP.controllers;
+package com.ifcdpp.ifcdpp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,18 +16,6 @@ public class MainController {
     public String about(Model model) {
         model.addAttribute("title", "О нас");
         return "about";
-    }
-
-    @GetMapping("/reg")
-    public String reg(Model model) {
-        model.addAttribute("title", "Регистрация");
-        return "reg";
-    }
-
-    @GetMapping("/login")
-    public String login(Model model) {
-        model.addAttribute("title", "Авторизация");
-        return "login";
     }
 
 

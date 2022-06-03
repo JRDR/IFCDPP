@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${title}"/>
+    <title>Авторизация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
@@ -15,25 +15,34 @@
 
         <div class="title">Авторизация</div>
 
-        <form action="#">
-            <div class="user-details">
-
-                <div class="input-box">
-                    <span class="details">E-mail</span>
-                    <input type="text" placeholder="Введите e-mail" required>
-                </div>
-
-                <div class="input-box">
-                    <span class="details">Пароль</span>
-                    <input type="text" placeholder="Введите пароль" required>
-                </div>
-
-            </div>
-        </form>
-
-        <div class ="confirm">
-            <button type ="submit" value="register">ВОЙТИ</button>
+        <div th:if="${param.error}">
+            Неверная почта или пароль.
         </div>
+        <div th:if="${param.logout}">
+            Вы разлогинились.
+        </div>
+
+        <div sec:authorize="isAnonymous()">
+            <form th:action="@{/login}" method="post">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">E-mail</span>
+                        <input type="text" placeholder="Введите e-mail" required name="username">
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Пароль</span>
+                        <input type="password" placeholder="Введите пароль" required name="password">
+                    </div>
+
+                </div>
+                <div class ="confirm">
+                    <button type ="submit">ВОЙТИ</button>
+                </div>
+            </form>
+        </div>
+
         <div class="reg-autho">
             <a href="/reg">Не зарегистрированы?</a>
         </div>

@@ -1,7 +1,7 @@
-package com.IFCDPP.IFCDPP.controllers;
+package com.ifcdpp.ifcdpp.controllers;
 
-import com.IFCDPP.IFCDPP.models.Post;
-import com.IFCDPP.IFCDPP.service.PostService;
+import com.ifcdpp.ifcdpp.models.Post;
+import com.ifcdpp.ifcdpp.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

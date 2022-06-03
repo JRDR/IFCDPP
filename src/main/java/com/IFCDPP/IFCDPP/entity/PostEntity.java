@@ -1,14 +1,13 @@
-package com.IFCDPP.IFCDPP.entity;
+package com.ifcdpp.ifcdpp.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
-@Entity(name = "post")
+@Entity
+@Table(name="post")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,6 +18,7 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
+    @Type(type="text")
     private String text;
     private int views;
 

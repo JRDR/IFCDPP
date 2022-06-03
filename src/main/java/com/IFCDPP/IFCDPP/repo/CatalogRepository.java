@@ -1,4 +1,4 @@
-package com.IFCDPP.IFCDPP.repo;
+package com.ifcdpp.ifcdpp.repo;
 
 public interface CatalogRepository {
 }
