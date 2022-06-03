@@ -140,8 +140,9 @@ background-color:#DFDBD8;
 }
 
 .registration-container{
+margin-right:30%;
 max-width:700px;
-width: 100%;
+width: 40%;
 background-color:#686E70;
 padding: 25px 30px;
 }
@@ -152,6 +153,7 @@ font-weight:400;
 font-size:18px;
 color:#E0EFF4;
 text-decoration:none;
+text-align:center;
 }
 
 /*.registration-container .title::before{
@@ -165,16 +167,116 @@ background:#E0EFF4;
 }*/
 
 .registration-container form .user-details{
-display:flex;
+/*display:flex;*/
 flex-wrap:wrap;
 justify-content: space-between;
 }
 
 form .user-details .input-box{
-width: calc(100% / 2 - 20px);
+width: 70%;
+margin: 20px 0 12px 0;
 }
 
+.user-details .input-box .details{
+display:block;
+font-family: 'Russo One', sans-serif;
+font-weight:300;
+font-size:14px;
+color:#E0EFF4;
+text-decoration:none;
+margin-bottom: 5px;
+}
 .user-details .input-box input{
-height: 45px;
+height: 30px;
 width: 100%;
+outline:none;
+border: 1px solid;
+padding-left:15px;
+font-size:14px;
+}
+.confirm{
+padding-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+.confirm button{
+font-family: 'Russo One', sans-serif;
+font-weight:400;
+font-size:18px;
+color:#E0EFF4;
+text-decoration:none;
+border-radius:0px;
+
+}
+
+.reg-autho{
+   display: block;
+   text-align: center;
+}
+
+.reg-autho a{
+color:#A7D3C8;
+   font-size:14px;
+   display: block;
+   text-align: center;
+}
+/***/
+/***/
+/***/
+blog{
+display:flex;
+padding: 10px 0px 10px 50px;
+background-color:#DFDBD8;
+}
+
+
+.posts-container{
+margin-right:30%;
+max-width:700px;
+width: 100%;
+padding: 25px 30px;
+}
+
+.blog-post{
+margin-bottom:70px;
+width:100%;
+background-color:#686E70;
+}
+
+.blog-post h3{
+padding: 10px 10px 10px 10px;
+font-family: 'Russo One', sans-serif;
+ font-weight:400;
+ font-size:18px;
+ color:#E0EFF4;
+ text-decoration:none;
+}
+
+.blog-post button{
+font-family: 'Russo One', sans-serif;
+font-weight:400;
+font-size:18px;
+color:#E0EFF4;
+text-decoration:none;
+border-radius:0px;
+}
+
+.blog-post p{
+padding: 10px 10px 10px 10px;
+font-family: 'Russo One', sans-serif;
+ font-weight:400;
+ font-size:14px;
+ color:#E0EFF4;
+ text-decoration:none;
+}
+
+.blog-post a{
+float:right;
+}
+
+.blog-read{
+float:right;
+width: 100%;
+  background: #686E70;
 }

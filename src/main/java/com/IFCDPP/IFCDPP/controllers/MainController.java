@@ -24,5 +24,11 @@ public class MainController {
         return "reg";
     }
 
+    @GetMapping("/login")
+    public String login(Model model) {
+        model.addAttribute("title", "Авторизация");
+        return "login";
+    }
+
 
 }
