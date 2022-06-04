@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,8 +19,8 @@ public class BlogController {
     private final PostService postService;
 
     @GetMapping("/blog")
-    public String blogMain(Model model){
-    List<Post> posts = postService.getAllPosts();
+    public String blogMain(@RequestParam(required = false) Integer page, Model model){
+    List<Post> posts = postService.getPostsOnPage(page);
     model.addAttribute("posts",posts);
     return "blog-main";
     }
@@ -27,6 +28,12 @@ public class BlogController {
     @GetMapping("/blog/add")
     public String blogAdd(Model model){
         return "blog-add";
+    }
+
+    @GetMapping("/blog/{id}")
+    public String getPost(@PathVariable Long id, Model model) {
+        model.addAttribute("post", postService.getPostById(id));
+        return "post";
     }
 
     @PostMapping("/blog/add")
