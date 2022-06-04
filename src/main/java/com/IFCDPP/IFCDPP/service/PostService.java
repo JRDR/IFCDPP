@@ -17,13 +17,16 @@ public class PostService {
 
     public List<Post> getAllPosts() {
         List<PostEntity> entities = postRepository.findAll();
-        return entities.stream().map(x -> new Post(x.getId(), x.getTitle(), x.getText(), x.getViews()))
-                .collect(Collectors.toList());
+        return entities.stream().map(this::mapPost).collect(Collectors.toList());
     }
 
     public void savePost(String title, String text) {
         PostEntity post =new PostEntity(title, text);
         postRepository.save(post);
+    }
+
+    private Post mapPost(PostEntity entity) {
+        return Post.builder().id(entity.getId()).title(entity.getTitle()).text(entity.getText()).build();
     }
 
 }
