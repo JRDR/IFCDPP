@@ -11,39 +11,21 @@
 
 <main>
 
-    <div sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
-    </div>
-    <div sec:authorize="isAnonymous()">
-        Вы не вошли
-    </div>
-<p>Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
-    <p> Main PageMain Page</p>
-    <br><br><br><br><br>
+<div class ="main-catalog">
+<p>на сайте ведуться тех роботы))</p>
+    <p> по всем вопросам ко мне:</p>
+    <img th:src="@{/img/teh.jpg}" alt="PGS">
+</div>
+
+<div class ="main-about">
+
+</div>
+
+<div class ="main-contact">
+
+</div>
 
 </main>
-
 <footer th:insert="blocks/footer :: footer"></footer>
 
 </body>
