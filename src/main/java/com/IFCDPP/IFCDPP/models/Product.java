@@ -17,5 +17,6 @@ public class Product {
     private String description;
     private String downloadLink;
     private BigDecimal price;
+    private String category;
 
 }

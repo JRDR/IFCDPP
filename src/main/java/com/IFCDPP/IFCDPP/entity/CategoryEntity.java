@@ -10,23 +10,15 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "product")
+@Table(name = "category")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductEntity {
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    @Type(type = "text")
-    private String description;
-    private String developer;
-    private String downloadLink;
-    private BigDecimal price;
-
-    @ManyToOne
-    private CategoryEntity category;
 }

@@ -23,6 +23,7 @@ public class ProductService {
     private Product mapEntityForCatalog(ProductEntity entity) {
         return Product.builder().title(entity.getTitle()).description(entity.getDescription())
                 .developer(entity.getDeveloper()).price(entity.getPrice()).downloadLink(entity.getDownloadLink())
+                .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
                 .build();
     }
 
