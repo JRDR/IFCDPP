@@ -13,7 +13,7 @@
         </nav>
     <div class = registration>
         <div sec:authorize="isAuthenticated()">
-            <a class="reg" href="/"><button><div sec:authentication="name"></button></a>
+            <a class="reg" href="/"><button><div sec:authentication="name"></div></button></a>
             <form th:action="@{/logout}" method="post">
                 <a class="asignout" value="Sign Out"><input class = "signout" type="submit" value="Выход"/></a>
             </form>
