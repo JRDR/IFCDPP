@@ -12,9 +12,17 @@
 
 <blog>
 
-
 <div class="posts-container">
-    <div class="blog-title"><h1>Новости</h1></div>
+
+    <div class="blog-title">
+
+        <h1>Новости</h1>
+
+        <div sec:authorize="hasAuthority('ADMIN')">
+            <a href="/blog/add"><button>Добавить статью</button></a>
+        </div>
+
+    </div>
     <div class="blog-post" th:each="post : ${posts}">
     <h3 th:text="${post.title}"/>
         <p th:text="${post.text}"/>

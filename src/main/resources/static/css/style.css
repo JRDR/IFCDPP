@@ -420,4 +420,21 @@ catalog {
 }
 .product-image{
 width:100px;
-height:100px;}
+height:100px;
+}
+
+.blog-title button{
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.blog-title button:hover{
+transition-duration:300ms;
+ background: #FEFAF7;
+color: #565C5E;
+}
+
