@@ -24,6 +24,7 @@ public class ProductService {
         return Product.builder().title(entity.getTitle()).description(entity.getDescription())
                 .developer(entity.getDeveloper()).price(entity.getPrice()).downloadLink(entity.getDownloadLink())
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
+                .imageLink(entity.getImageLink())
                 .build();
     }
 

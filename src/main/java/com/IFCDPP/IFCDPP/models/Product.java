@@ -1,6 +1,5 @@
 package com.ifcdpp.ifcdpp.models;
 
-
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,5 +17,6 @@ public class Product {
     private String downloadLink;
     private BigDecimal price;
     private String category;
+    private String imageLink;
 
 }
