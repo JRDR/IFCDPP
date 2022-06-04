@@ -1,15 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <table>
-            <tr th:each="product : ${products}">
-                <td th:text="${product.title}"></td>
-                <td th:text="${product.description}"></td>
-                <td th:text="${product.developer}"></td>
-                <td th:text="${product.price}"></td>
-                <td th:text="${product.category}"></td>
-                <td><img th:src="${product.imageLink}"></td>
-            </tr>
-        </table>
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<catalog>
+    <div class="products-container">
+
+        <div class="product-post" th:each="product : ${products}">
+            <h3 th:text="${product.title}"/>
+            <p th:text="${product.description}"/>
+            <div class="product-read">
+                <a th:href="'/catalog/' + ${product.id}"><button>ЧИТАТЬ</button></a>
+            </div>
+        </div>
+
+    </div>
+</catalog>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
     </body>
 </html>

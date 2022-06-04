@@ -27,6 +27,9 @@ li, a, button {
     color: #E0EFF4;
     text-decoration: none;
 }
+a::hover{
+color: #B5C2C7;
+}
 
 #logolink {
 
@@ -50,11 +53,31 @@ li, a, button {
     padding: 0px 20px;
 }
 
+
 .logoblock {
     padding-right: 15px;
 }
+.asignout{
+color: #A7D3C8;
+    font-size: 0px;
+    display: block;
+    text-align: center;
+}
 
+.signout{
+  color: #A7D3C8;
+      height: 14px;
+      font-size: 14px;
+      text-align: center;
+      padding: 0px 0px;
+      background: #565C5E;
+      border: 0 none;
+      cursor: pointer;
+      /* -webkit-border-radius: 5px; */
+      /* border-radius: 5px; */
+      font-family: 'Russo One', sans-serif;
 
+}
 button {
     padding: 9px 25px;
     background-color: #565C5E;
@@ -282,6 +305,65 @@ blog {
 }
 
 .blog-post a {
+    float: right;
+}
+
+.blog-read {
+    float: right;
+    width: 100%;
+    background: #686E70;
+}
+
+/*****/
+/*****/
+/*****/
+/*****/
+/*****/
+
+
+catalog {
+    display: flex;
+    padding: 10px 0px 10px 50px;
+    background-color: #DFDBD8;
+}
+
+
+.product-post {
+    margin-bottom: 70px;
+    width: 100%;
+    background-color: #686E70;
+}
+
+.product-post h3 {
+    padding: 10px 10px 10px 10px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+}
+
+.product-post button {
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.product-post p {
+    padding: 10px 10px 10px 10px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #E0EFF4;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-post a {
     float: right;
 }
 
