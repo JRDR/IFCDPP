@@ -11,16 +11,18 @@
 <header th:insert="blocks/header :: header"></header>
 
 <blog>
-<div class="posts-container">
 
+
+<div class="posts-container">
+    <div class="blog-title"><h1>Новости</h1></div>
     <div class="blog-post" th:each="post : ${posts}">
     <h3 th:text="${post.title}"/>
         <p th:text="${post.text}"/>
         <div class="blog-read">
+
         <a th:href="'/blog/' + ${post.id}"><button>ЧИТАТЬ</button></a>
         </div>
     </div>
-
 </div>
 </blog>
 

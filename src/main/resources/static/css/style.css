@@ -6,6 +6,14 @@ body {
     flex-direction: column;
 }
 
+h1{
+ font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #E0EFF4;
+    text-decoration: none;
+}
+
 
 .header {
     height: 90px;
@@ -27,8 +35,9 @@ li, a, button {
     color: #E0EFF4;
     text-decoration: none;
 }
-a::hover{
-color: #B5C2C7;
+a:hover{
+transition-duration: 300ms;
+color: #A7D3C8;
 }
 
 #logolink {
@@ -51,6 +60,7 @@ color: #B5C2C7;
 .nav-links li {
     display: inline-block;
     padding: 0px 20px;
+    color: #B5C2C7;
 }
 
 
@@ -62,6 +72,11 @@ color: #A7D3C8;
     font-size: 0px;
     display: block;
     text-align: center;
+}
+
+.signout:hover{
+transition-duration: 300ms;
+color: #E0EFF4;
 }
 
 .signout{
@@ -78,6 +93,16 @@ color: #A7D3C8;
       font-family: 'Russo One', sans-serif;
 
 }
+.autho:hover{
+transition-duration: 300ms;
+color: #E0EFF4;
+}
+
+.reg:hover{
+transition-duration: 300ms;
+color: #A7D3C8;
+}
+
 button {
     padding: 9px 25px;
     background-color: #565C5E;
@@ -85,6 +110,14 @@ button {
     border-radius: 50px;
     cursor: pointer;
 }
+
+
+
+.header button:hover{
+transition-duration: 300ms;
+color: #A7D3C8;
+}
+
 
 #catalog {
     font-size: 18px;
@@ -268,7 +301,14 @@ blog {
     width: 100%;
     padding: 25px 30px;
 }
-
+.blog-title{
+    text-align:center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    background-color: #686E70;
+}
 .blog-post {
     margin-bottom: 70px;
     width: 100%;
@@ -312,6 +352,12 @@ blog {
     float: right;
     width: 100%;
     background: #686E70;
+}
+
+.blog-read button:hover {
+    transition-duration:300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 }
 
 /*****/
@@ -367,8 +413,11 @@ catalog {
     float: right;
 }
 
-.blog-read {
+.product-read {
     float: right;
     width: 100%;
     background: #686E70;
 }
+.product-image{
+width:100px;
+height:100px;}

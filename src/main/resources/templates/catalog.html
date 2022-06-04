@@ -12,8 +12,8 @@
 
 <catalog>
     <div class="products-container">
-
         <div class="product-post" th:each="product : ${products}">
+            <img class="product-image" th:src="${product.imageLink}">
             <h3 th:text="${product.title}"/>
             <p th:text="${product.description}"/>
             <div class="product-read">
