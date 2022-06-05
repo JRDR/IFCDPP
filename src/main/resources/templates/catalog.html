@@ -30,6 +30,9 @@
         <div class="search">
         <input class="current-category" type="hidden" th:value="${currentCategory}">
         <form th:action="@{/catalog}" method="get">
+
+            <input type="text" name="title" placeholder="Название">
+
             <select name="categoryId">
                 <option th:selected="${currentCategory == null}" th:value="null">Все категории</option>
                 <option th:each="category: ${categories}" th:value="${category.id}"
