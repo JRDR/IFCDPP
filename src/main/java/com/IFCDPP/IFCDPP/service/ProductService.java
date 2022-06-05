@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public Catalog getCatalogOnPage(Integer page, Long categoryId) {
+    public Catalog getCatalogOnPage(Integer page, String query, Long categoryId) {
         if (page == null) {
             page = 1;
         }
@@ -32,9 +33,9 @@ public class ProductService {
         Pageable pageWithFiveElems = PageRequest.of(page - 1, 5);
         Page<ProductEntity> entities;
         if (categoryId == null) {
-            entities = productRepository.findAll(pageWithFiveElems);
+            entities = productRepository.findAllByTitleStartsWithIgnoreCase(query, pageWithFiveElems);
         } else {
-            entities = productRepository.findAllByCategory_Id(categoryId, pageWithFiveElems);
+            entities = productRepository.findAllByCategory_IdAndTitleStartsWithIgnoreCase(categoryId, query, pageWithFiveElems);
         }
         List<Product> products = entities.stream().map(this::mapProductForCatalog).collect(Collectors.toList());
         int pagesNum = entities.getTotalPages();
