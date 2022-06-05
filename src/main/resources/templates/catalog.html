@@ -14,17 +14,31 @@
 
 <catalog>
 
-    <input class="current-category" type="hidden" th:value="${currentCategory}">
-    <form th:action="@{/catalog}" method="get">
-        <select name="categoryId">
-            <option th:selected="${currentCategory == null}" th:value="null">Все категории</option>
-            <option th:each="category: ${categories}" th:value="${category.id}"
-                    th:text="${category.title}" th:selected="${category.id == currentCategory}"></option>
-        </select>
-        <button type="submit" class="btn btn-success">Найти</button>
-    </form>
 
     <div class="products-container">
+
+        <div class="blog-title">
+
+            <h1>Каталог</h1>
+
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a href="/catalog/add"><button>Добавить продукт</button></a>
+            </div>
+
+        </div>
+
+        <div class="search">
+        <input class="current-category" type="hidden" th:value="${currentCategory}">
+        <form th:action="@{/catalog}" method="get">
+            <select name="categoryId">
+                <option th:selected="${currentCategory == null}" th:value="null">Все категории</option>
+                <option th:each="category: ${categories}" th:value="${category.id}"
+                        th:text="${category.title}" th:selected="${category.id == currentCategory}"></option>
+            </select>
+            <button type="submit" class="btn btn-success">Найти</button>
+        </form>
+        </div>
+
         <div class="product-post" th:each="product : ${catalog.products}">
             <img class="product-image" th:src="${product.imageLink}">
             <h3 th:text="${product.title}"/>
@@ -33,11 +47,13 @@
                 <a th:href="'/product/' + ${product.id}"><button>ЧИТАТЬ</button></a>
             </div>
         </div>
+
+        <div class="pages-container">
+            <button class="page-button" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
+        </div>
+
     </div>
 
-    <div class="pages-container">
-        <button class="page-button" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
-    </div>
 
 </catalog>
 

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -21,5 +22,18 @@ public class CatalogController {
         model.addAttribute("currentCategory", categoryId);
         return "catalog";
     }
+
+    @GetMapping("/catalog/add")
+    public String catalogAdd(Model model){
+        return "catalog-add";
+    }
+
+    /*
+    @PostMapping("/catalog/add")
+    public String catalogProductAdd(@RequestBody ){
+        productService.saveProduct(title, description);
+        return "redirect:/catalog";
+    }
+    */
 
 }
