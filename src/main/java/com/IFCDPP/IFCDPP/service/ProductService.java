@@ -2,6 +2,7 @@ package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.CategoryEntity;
 import com.ifcdpp.ifcdpp.entity.ProductEntity;
+import com.ifcdpp.ifcdpp.models.Category;
 import com.ifcdpp.ifcdpp.models.Product;
 import com.ifcdpp.ifcdpp.repo.CategoryRepository;
 import com.ifcdpp.ifcdpp.repo.ProductRepository;
@@ -22,18 +23,28 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public List<Product> getFullCatalogOnPage(Integer page) {
+    public List<Product> getCatalogOnPage(Integer page, Long categoryId) {
         if (page == null) {
             page = 1;
         }
+
         Pageable pageWithFiveElems = PageRequest.of(page - 1, 5);
-        Page<ProductEntity> entities = productRepository.findAll(pageWithFiveElems);
+        Page<ProductEntity> entities;
+        if (categoryId == null) {
+            entities = productRepository.findAll(pageWithFiveElems);
+        } else {
+            entities = productRepository.findAllByCategory_Id(categoryId, pageWithFiveElems);
+        }
         return entities.stream().map(this::mapProductForCatalog).collect(Collectors.toList());
     }
 
     public Product getProductById(Long id) {
         Optional<ProductEntity> entity = productRepository.findById(id);
         return entity.map(this::mapProduct).orElse(null);
+    }
+
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll().stream().map(this::mapCategory).collect(Collectors.toList());
     }
 
     public void saveProduct(Product product) {
@@ -66,6 +77,10 @@ public class ProductService {
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
                 .imageLink(entity.getImageLink())
                 .build();
+    }
+
+    private Category mapCategory(CategoryEntity entity) {
+        return Category.builder().id(entity.getId()).title(entity.getTitle()).build();
     }
 
 }

@@ -20,8 +20,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public List<Post> getAllPosts() {
-        List<PostEntity> entities = postRepository.findAll();
-        return entities.stream().map(this::mapPost).collect(Collectors.toList());
+        return postRepository.findAll().stream().map(this::mapPost).collect(Collectors.toList());
     }
 
     public List<Post> getPostsOnPage(Integer page) {

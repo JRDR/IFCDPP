@@ -11,6 +11,16 @@
 <header th:insert="blocks/header :: header"></header>
 
 <catalog>
+
+    <form th:action="@{/catalog}" method="get">
+        <select name="categoryId">
+            <option th:selected="${currentCategory == null}" th:value="null">Все категории</option>
+            <option th:each="category: ${categories}" th:value="${category.id}"
+                    th:text="${category.title}" th:selected="${category.id == currentCategory}"></option>
+        </select>
+        <button type="submit" class="btn btn-success">Найти</button>
+    </form>
+
     <div class="products-container">
         <div class="product-post" th:each="product : ${products}">
             <img class="product-image" th:src="${product.imageLink}">
