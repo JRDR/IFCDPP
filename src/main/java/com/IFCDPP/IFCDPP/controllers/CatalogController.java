@@ -16,7 +16,7 @@ public class CatalogController {
     @GetMapping("/catalog")
     public String getCatalog(@RequestParam(required = false) Integer page,
                              @RequestParam(required = false) Long categoryId, Model model) {
-        model.addAttribute("products", productService.getCatalogOnPage(page, categoryId));
+        model.addAttribute("catalog", productService.getCatalogOnPage(page, categoryId));
         model.addAttribute("categories", productService.getAllCategories());
         model.addAttribute("currentCategory", categoryId);
         return "catalog";

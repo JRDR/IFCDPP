@@ -2,6 +2,7 @@ package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.CategoryEntity;
 import com.ifcdpp.ifcdpp.entity.ProductEntity;
+import com.ifcdpp.ifcdpp.models.Catalog;
 import com.ifcdpp.ifcdpp.models.Category;
 import com.ifcdpp.ifcdpp.models.Product;
 import com.ifcdpp.ifcdpp.repo.CategoryRepository;
@@ -23,7 +24,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public List<Product> getCatalogOnPage(Integer page, Long categoryId) {
+    public Catalog getCatalogOnPage(Integer page, Long categoryId) {
         if (page == null) {
             page = 1;
         }
@@ -35,7 +36,10 @@ public class ProductService {
         } else {
             entities = productRepository.findAllByCategory_Id(categoryId, pageWithFiveElems);
         }
-        return entities.stream().map(this::mapProductForCatalog).collect(Collectors.toList());
+        List<Product> products = entities.stream().map(this::mapProductForCatalog).collect(Collectors.toList());
+        int pagesNum = entities.getTotalPages();
+
+        return new Catalog(products, pagesNum);
     }
 
     public Product getProductById(Long id) {

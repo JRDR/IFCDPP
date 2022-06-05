@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/catalog.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -12,6 +14,7 @@
 
 <catalog>
 
+    <input class="current-category" type="hidden" th:value="${currentCategory}">
     <form th:action="@{/catalog}" method="get">
         <select name="categoryId">
             <option th:selected="${currentCategory == null}" th:value="null">Все категории</option>
@@ -22,7 +25,7 @@
     </form>
 
     <div class="products-container">
-        <div class="product-post" th:each="product : ${products}">
+        <div class="product-post" th:each="product : ${catalog.products}">
             <img class="product-image" th:src="${product.imageLink}">
             <h3 th:text="${product.title}"/>
             <p th:text="${product.description}"/>
@@ -30,8 +33,12 @@
                 <a th:href="'/product/' + ${product.id}"><button>ЧИТАТЬ</button></a>
             </div>
         </div>
-
     </div>
+
+    <div class="pages-container">
+        <button class="page-button" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
+    </div>
+
 </catalog>
 
 <footer th:insert="blocks/footer :: footer"></footer>
