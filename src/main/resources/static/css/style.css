@@ -7,6 +7,23 @@ body {
     flex-direction: column;
 }
 
+.page-button{
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.page-button:hover{
+ transition-duration:300ms;
+    background: #FEFAF7;
+    color: #565C5E;
+}
+
+
+
 h1{
  font-family: 'Russo One', sans-serif;
     font-weight: 400;
@@ -274,6 +291,13 @@ form .user-details .input-box {
 
 }
 
+.confirm button:hover {
+  transition-duration:300ms;
+     background: #FEFAF7;
+     color: #565C5E;
+
+}
+
 .reg-autho {
     display: block;
     text-align: center;
@@ -414,20 +438,23 @@ text-align:center;
 }
 
 .products-container{
-    margin-right: 30%;
+    display: inline-grid;
+
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
 }
-
+.product-description-box{
+}
 .product-post {
-    margin-bottom: 70px;
+padding-top:15px;
+    margin-bottom: 30px;
     width: 100%;
     background-color: #686E70;
 }
 
 .product-post h3 {
-    padding: 10px 10px 10px 10px;
+    padding: 15px 10px 10px 10px;
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -444,8 +471,14 @@ text-align:center;
     border-radius: 0px;
 }
 
+.product-post button:hover {
+   transition-duration:300ms;
+      background: #FEFAF7;
+      color: #565C5E;
+}
+
 .product-post p {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 0px;
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -461,15 +494,33 @@ text-align:center;
 
 .product-read {
     float: right;
-    width: 100%;
     background: #686E70;
 }
 .product-image{
+padding: 10px 15px 8px 10px;
+float:left;
 width:100px;
 height:100px;
 }
 
+.product-image-box{
 
+}
+
+.searchbutton{
+ font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.searchbutton:hover{
+transition-duration:300ms;
+      background: #FEFAF7;
+      color: #565C5E;
+}
 
 /*****/
 /*****/
@@ -485,3 +536,15 @@ display: flex;
      align-items: center;
      background-color: #DFDBD8;
 }
+
+
+
+
+/*****/
+/*****/
+/*****/
+/*****/
+/*****/
+
+
+

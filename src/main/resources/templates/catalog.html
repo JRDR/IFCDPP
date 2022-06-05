@@ -38,16 +38,24 @@
                 <option th:each="category: ${categories}" th:value="${category.id}"
                         th:text="${category.title}" th:selected="${category.id == currentCategory}"></option>
             </select>
-            <button type="submit" class="btn btn-success">Найти</button>
+            <button class="searchbutton" type="submit">Найти</button>
         </form>
         </div>
 
         <div class="product-post" th:each="product : ${catalog.products}">
+            <div class="product-image-box">
             <img class="product-image" th:src="${product.imageLink}">
+            </div>
+            <div class="product-info">
             <h3 th:text="${product.title}"/>
+                <h3 th:text="${product.developer}"/>
+            </div>
+
             <p th:text="${product.description}"/>
+
+
             <div class="product-read">
-                <a th:href="'/product/' + ${product.id}"><button>ЧИТАТЬ</button></a>
+                <a th:href="'/product/' + ${product.id}"><button>ПРОСМОТРЕТЬ</button></a>
             </div>
         </div>
 
