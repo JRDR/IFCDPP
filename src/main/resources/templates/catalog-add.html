@@ -12,12 +12,12 @@
 
 <div class ="catalog-add">
   <h1>Добавить продукт</h1>
-  <form action="/catalog/add" method="post">
+  <form th:action="@{/product}" method="post" name="product">
     <input type="text" name="title" placeholder="Название" class="form-control"><br>
 
-    <textarea name="description" placeholder="Текст" class="form-control"></textarea><br>
+    <textarea name="description" placeholder="Описание" class="form-control"></textarea><br>
 
-    <input type="text" name="title" placeholder="Название" class="form-control"><br>
+    <input type="text" name="developer" placeholder="Разработчик" class="form-control"><br>
 
     <button type="submit" class="btn btn-success">Добавить</button>
   </form>

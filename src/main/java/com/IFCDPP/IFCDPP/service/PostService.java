@@ -32,9 +32,9 @@ public class PostService {
         return entities.stream().map(this::mapPost).collect(Collectors.toList());
     }
 
-    public void savePost(String title, String text) {
-        PostEntity post = new PostEntity(title, text);
-        postRepository.save(post);
+    public void savePost(Post post) {
+        PostEntity entity = new PostEntity(post.getTitle(), post.getText());
+        postRepository.save(entity);
     }
 
     public Post getPostById(Long id) {

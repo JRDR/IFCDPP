@@ -3,6 +3,7 @@ package com.ifcdpp.ifcdpp.controllers;
 import com.ifcdpp.ifcdpp.models.Post;
 import com.ifcdpp.ifcdpp.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +37,9 @@ public class BlogController {
         return "post";
     }
 
-    @PostMapping("/blog/add")
-    public String blogPostAdd(@RequestParam String title, @RequestParam String text){
-        postService.savePost(title, text);
+    @PostMapping(path = "/blog/add", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String blogPostAdd(Post post){
+        postService.savePost(post);
         return "redirect:/blog";
     }
 }

@@ -28,12 +28,4 @@ public class CatalogController {
         return "catalog-add";
     }
 
-    /*
-    @PostMapping("/catalog/add")
-    public String catalogProductAdd(@RequestBody ){
-        productService.saveProduct(title, description);
-        return "redirect:/catalog";
-    }
-    */
-
 }
