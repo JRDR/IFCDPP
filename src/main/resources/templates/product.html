@@ -19,7 +19,7 @@
             <a th:href ="${product.imageLink}" class ="product-developer" th:text="${product.developer}"/>
         </div>
 
-        <div sec:authorize="hasAuthority('ADMIN')">
+        <div class="blog-title" sec:authorize="hasAuthority('ADMIN')">
             <a th:href="'/product/' + ${product.id} + '/upload'"><button>Изменить файлы</button></a>
         </div>
 
@@ -27,10 +27,12 @@
             <p th:text="${product.description}"/>
         </div>
 
-        <div class="product-description-block">
-            <p th:text="${product.downloadLink}"/>
-        </div>
 
+        <div class="product-buttons">
+            <a href="/catalog" class="product-catalog-button"><button>КАТАЛОГ</button></a>
+            <p th:text="${product.price}"/>
+            <a th:href="${product.downloadLink}" class="product-download-button"><button>СКАЧАТЬ</button></a>
+        </div>
 
 </div>
 

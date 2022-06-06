@@ -468,6 +468,25 @@ text-align:center;
     text-decoration: none;
 }
 
+.product-post h4 {
+    padding: 0px 10px 10px 10px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+}
+
+.product-post h4{
+color: #A7D3C8;
+    font-size: 14px;
+}
+
+.product-developer h4:hover{
+transition-duration: 300ms;
+color: #E0EFF4;
+}
+
 .product-post button {
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
@@ -654,3 +673,47 @@ color: #E0EFF4;
 .product-description-block p{
 padding-left: 15px;
 }
+
+.product-buttons{
+margin-top: 15px;
+background-color: #686E70;
+display: flex;
+align-items: center;
+}
+
+
+.product-buttons p{
+margin-right: 5%;
+font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    text-align: center;
+}
+
+.product-buttons button{
+font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.product-buttons button:hover{
+transition-duration:300ms;
+    background: #FEFAF7;
+    color: #565C5E;
+}
+
+
+
+.product-catalog-button{
+margin-right:auto;
+}
+
+.product-download-button{
+float:right;
+}
+
