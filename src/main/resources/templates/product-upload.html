@@ -6,7 +6,9 @@
 </head>
 <body>
 <h1 th:text="${product.title}"></h1>
-<a th:href ="${product.imageLink}" class ="product-developer" th:text="${product.developer}"/>
-<input name="myFile" type="file">
+<form th:action="@{/product/{path}/upload(path=${product.id})}" method="post" enctype="multipart/form-data">
+    <input name="file" type="file">
+    <button type="submit">Загрузить</button>
+</form>
 </body>
 </html>

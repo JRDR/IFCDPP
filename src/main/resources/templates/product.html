@@ -27,10 +27,11 @@
             <p th:text="${product.description}"/>
         </div>
 
+
         <div class="product-buttons">
             <a href="/catalog" class="product-catalog-button"><button>КАТАЛОГ</button></a>
             <p th:text="${product.price}"/>
-            <a href="/catalog" class="product-download-button"><button>СКАЧАТЬ</button></a>
+            <a th:href="${product.downloadLink}" class="product-download-button"><button>СКАЧАТЬ</button></a>
         </div>
 
 </div>
