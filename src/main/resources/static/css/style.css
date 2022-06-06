@@ -448,15 +448,15 @@ text-align:center;
 }
 
 .product-post {
-    text-overflow: ellipsis;
-    max-height: 172px;
-    padding-top: 15px;
-    margin-bottom: 30px;
-    width: 100%;
-    max-width: 70vw;
-    background-color: #686E70;
-    /* overflow: hidden; */
-    white-space: nowrap;
+     text-overflow: ellipsis;
+     max-height: 172px;
+     padding-top: 15px;
+     margin-bottom: 30px;
+     width: 100%;
+     max-width: 700px;
+     background-color: #686E70;
+     overflow: hidden;
+     white-space: nowrap;
 }
 
 .product-post h3 {
