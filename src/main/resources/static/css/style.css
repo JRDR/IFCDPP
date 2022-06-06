@@ -448,11 +448,15 @@ text-align:center;
 }
 
 .product-post {
-padding-top:15px;
+    text-overflow: ellipsis;
+    max-height: 172px;
+    padding-top: 15px;
     margin-bottom: 30px;
     width: 100%;
-    max-width: 90vw;
+    max-width: 70vw;
     background-color: #686E70;
+    /* overflow: hidden; */
+    white-space: nowrap;
 }
 
 .product-post h3 {
