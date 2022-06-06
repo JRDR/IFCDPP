@@ -27,6 +27,7 @@ public class ProductEntity {
     private String downloadLink;
     private BigDecimal price;
     private String imageLink;
+    private String developerLink;
 
     @ManyToOne
     private CategoryEntity category;

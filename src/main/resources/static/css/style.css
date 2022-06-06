@@ -451,6 +451,7 @@ text-align:center;
 padding-top:15px;
     margin-bottom: 30px;
     width: 100%;
+    max-width: 90vw;
     background-color: #686E70;
 }
 

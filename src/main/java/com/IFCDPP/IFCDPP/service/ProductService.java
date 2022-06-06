@@ -72,7 +72,8 @@ public class ProductService {
     private Product mapProductForCatalog(ProductEntity entity) {
         return Product.builder().id(entity.getId()).title(entity.getTitle()).description(entity.getDescription())
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
-                .imageLink(entity.getImageLink())
+                .developer(entity.getDeveloper()).imageLink(entity.getImageLink())
+                .developerLink(entity.getDeveloperLink())
                 .build();
     }
 
@@ -80,7 +81,7 @@ public class ProductService {
         return Product.builder().id(entity.getId()).title(entity.getTitle()).description(entity.getDescription())
                 .developer(entity.getDeveloper()).price(entity.getPrice()).downloadLink(entity.getDownloadLink())
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
-                .imageLink(entity.getImageLink())
+                .imageLink(entity.getImageLink()).developerLink(entity.getDeveloperLink())
                 .build();
     }
 

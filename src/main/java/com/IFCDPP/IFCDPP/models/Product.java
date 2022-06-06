@@ -19,5 +19,6 @@ public class Product {
     private BigDecimal price;
     private String category;
     private String imageLink;
+    private String developerLink;
 
 }
