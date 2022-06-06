@@ -7,6 +7,34 @@ body {
     flex-direction: column;
 }
 
+
+.blog-add{
+margin-right: 30%;
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+        background-color: #686E70;
+}
+
+.blog-add h1{
+}
+
+product-upload{
+margin-right: 30%;
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+        background-color: #686E70;
+}
+
+.catalog-add{
+margin-right: 30%;
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+        background-color: #686E70;
+}
+
 .page-button{
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
@@ -125,7 +153,7 @@ button {
     padding: 9px 25px;
     background-color: #565C5E;
     border: none;
-    border-radius: 50px;
+    border-radius: 0px;
     cursor: pointer;
 }
 
