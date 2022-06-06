@@ -28,4 +28,9 @@ public class ProductController {
         return "redirect:/catalog";
     }
 
+    @GetMapping("/product/{id}/upload")
+    public String UploadProduct(@PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.getProductById(id));
+        return "product-upload";
+    }
 }

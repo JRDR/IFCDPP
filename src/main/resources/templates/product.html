@@ -19,6 +19,10 @@
             <a th:href ="${product.imageLink}" class ="product-developer" th:text="${product.developer}"/>
         </div>
 
+        <div sec:authorize="hasAuthority('ADMIN')">
+            <a th:href="'/product/' + ${product.id} + '/upload'"><button>Изменить файлы</button></a>
+        </div>
+
         <div class="product-description-block">
             <p th:text="${product.description}"/>
         </div>
