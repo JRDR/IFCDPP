@@ -10,11 +10,22 @@
 
 <header th:insert="blocks/header :: header"></header>
 <product>
-    <img class="product-image" th:src="${product.imageLink}">
 
+    <div class="products-container">
+
+        <div class="product-head">
+            <img class="product-image" th:src="${product.imageLink}">
             <h1 th:text="${product.title}"></h1>
-    <p th:text="${product.developer}"/>
+            <a th:href ="${product.imageLink}" class ="product-developer" th:text="${product.developer}"/>
+        </div>
+
+        <div class="product-description-block">
             <p th:text="${product.description}"/>
+        </div>
+
+
+</div>
+
 
 </product>
 
