@@ -1,5 +1,33 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
 <body>
-    <div th:text="${post.title}"></div>
+
+<header th:insert="blocks/header :: header"></header>
+<blog>
+
+    <div class="posts-container">
+
+        <div class="blog-title">
+
+            <h1 th:text="${post.title}"></h1>
+        </div>
+
+        <div class="post-post">
+            <p th:text="${post.text}"/>
+        </div>
+
+        <div class="post-back">
+        <a href="/blog"><button>НАЗАД</button></a>
+            </div>
+    </div>
+</blog>
+
+<footer th:insert="blocks/footer :: footer"></footer>
 </body>
+</html>

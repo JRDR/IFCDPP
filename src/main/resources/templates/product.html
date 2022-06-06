@@ -1,10 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-    <div th:text="${product.title}"></div>
+
+<header th:insert="blocks/header :: header"></header>
+<product>
+    <img class="product-image" th:src="${product.imageLink}">
+
+            <h1 th:text="${product.title}"></h1>
+    <p th:text="${product.developer}"/>
+            <p th:text="${product.description}"/>
+
+</product>
+
+<footer th:insert="blocks/footer :: footer"></footer>
 </body>
 </html>
