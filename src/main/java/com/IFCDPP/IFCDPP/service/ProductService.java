@@ -2,6 +2,7 @@ package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.CategoryEntity;
 import com.ifcdpp.ifcdpp.entity.ProductEntity;
+import com.ifcdpp.ifcdpp.exceptions.MessageException;
 import com.ifcdpp.ifcdpp.models.Catalog;
 import com.ifcdpp.ifcdpp.models.Category;
 import com.ifcdpp.ifcdpp.models.Product;
@@ -67,6 +68,15 @@ public class ProductService {
 
         productRepository.save(entity);
 
+    }
+
+    public void addDownloadLinkToProduct(String downloadLink, Long id) {
+        Optional<ProductEntity> optional = productRepository.findById(id);
+
+        ProductEntity entity = optional.orElseThrow(() -> new MessageException("Product not found"));
+        entity.setDownloadLink(downloadLink);
+
+        productRepository.save(entity);
     }
 
     private Product mapProductForCatalog(ProductEntity entity) {

@@ -1,6 +1,5 @@
 package com.ifcdpp.ifcdpp.controllers.api;
 
-import com.ifcdpp.ifcdpp.models.UploadFile;
 import com.ifcdpp.ifcdpp.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -10,32 +9,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
-public class FileController {
+public class DownloadController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileController.class);
+    private static final Logger logger = LoggerFactory.getLogger(DownloadController.class);
 
     private final FileService fileService;
-
-    @PostMapping("/uploadFile")
-    public UploadFile uploadFile(@RequestParam("file") MultipartFile file) {
-        String fileName = fileService.storeFile(file);
-
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(fileName)
-                .toUriString();
-
-        return new UploadFile(fileName, fileDownloadUri,
-                file.getContentType(), file.getSize());
-    }
 
     @GetMapping("/downloadFile/{link:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String link, HttpServletRequest request) {
