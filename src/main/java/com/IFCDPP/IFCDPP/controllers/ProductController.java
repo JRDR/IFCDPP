@@ -1,17 +1,16 @@
 package com.ifcdpp.ifcdpp.controllers;
 
 import com.ifcdpp.ifcdpp.models.Product;
+import com.ifcdpp.ifcdpp.models.ProductRequest;
 import com.ifcdpp.ifcdpp.service.FileService;
 import com.ifcdpp.ifcdpp.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Controller
@@ -35,6 +34,14 @@ public class ProductController {
     @GetMapping("/catalog/add")
     public String catalogAdd(Model model){
         model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("product", new Product());
+        return "catalog-add";
+    }
+
+    @GetMapping("/product/edit/{id}")
+    public String editProduct(@PathVariable("id") Long id, Model model){
+        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("product", productService.getProductById(id));
         return "catalog-add";
     }
 
@@ -44,29 +51,19 @@ public class ProductController {
         return "product";
     }
 
-    @GetMapping("/product/{id}/upload")
-    public String getUploadPage(@PathVariable Long id, Model model) {
-        model.addAttribute("product", productService.getProductById(id));
-        return "product-upload";
-    }
+    @PostMapping(path = "/product")
+    public String saveProduct(ProductRequest product) {
+        Long newId = productService.saveProduct(product);
+        if (product.getFile().getSize() != 0) {
+            String fileName = fileService.storeFile(product.getFile());
 
-    @PostMapping("/product/{id}/upload")
-    public String uploadFile(@PathVariable("id") Long productId, @RequestParam("file") MultipartFile file) {
-        String fileName = fileService.storeFile(file);
-
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/downloadFile/")
-                .path(fileName)
-                .toUriString();
-        productService.addDownloadLinkToProduct(fileDownloadUri, productId);
-
-        return "redirect:/product/" + productId;
-    }
-
-    @PostMapping(path = "/product", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String saveProduct(Product product) {
-        productService.saveProduct(product);
-        return "redirect:/catalog";
+            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                    .path("/downloadFile/")
+                    .path(fileName)
+                    .toUriString();
+            productService.addDownloadLinkToProduct(fileDownloadUri, newId);
+        }
+        return "redirect:/product/" + newId;
     }
 
 }

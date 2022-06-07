@@ -13,21 +13,24 @@
 
 <div class ="catalog-add">
   <h1>Добавить продукт</h1>
-  <form th:action="@{/product}" method="post" name="product">
-    <input type="text" name="title" placeholder="Название" class="form-control"><br>
+  <form th:action="@{/product}" method="post" name="product" enctype="multipart/form-data">
+    <input type="hidden" name="id" th:value="${product.id}">
+    <input type="text" name="title" placeholder="Название" class="form-control" th:value="${product.title}"><br>
 
-    <textarea name="description" placeholder="Описание" class="form-control"></textarea><br>
+    <textarea name="description" placeholder="Описание" class="form-control" th:text="${product.description}"></textarea><br>
 
-    <input type="text" name="developer" placeholder="Разработчик" class="form-control"><br>
-    <input type="number" name="price" placeholder="Цена" class="form-control"><br>
-    <input type="text" name="imageLink" placeholder="Ссылка на изображение" class="form-control"><br>
-    <input type="text" name="category" placeholder="Категория" class="form-control" list="categories">
+    <input type="text" name="developer" placeholder="Разработчик" class="form-control" th:value="${product.developer}"><br>
+    <input type="number" name="price" placeholder="Цена" class="form-control" th:value="${product.price}"><br>
+    <input type="text" name="imageLink" placeholder="Ссылка на изображение" class="form-control" th:value="${product.imageLink}"><br>
+    <input type="text" name="category" placeholder="Категория" class="form-control" list="categories" th:value="${product.category}">
       <datalist id="categories">
         <option th:each="category: ${categories}" th:value="${category.title}">
       </datalist>
     <br>
-    <input type="text" name="developerLink" placeholder="Ссылка на сайт разработчика" class="form-control"><br>
-    <textarea name="preferences" placeholder="Системные требования" class="form-control"></textarea><br>
+    <input type="text" name="developerLink" placeholder="Ссылка на сайт разработчика" class="form-control" th:value="${product.developerLink}"><br>
+    <textarea name="preferences" placeholder="Системные требования" class="form-control" th:text="${product.preferences}"></textarea><br>
+
+    <input name="file" type="file">
 
     <button type="submit" class="btn btn-success">Добавить</button>
   </form>

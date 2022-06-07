@@ -6,6 +6,7 @@ import com.ifcdpp.ifcdpp.exceptions.MessageException;
 import com.ifcdpp.ifcdpp.models.Catalog;
 import com.ifcdpp.ifcdpp.models.Category;
 import com.ifcdpp.ifcdpp.models.Product;
+import com.ifcdpp.ifcdpp.models.ProductRequest;
 import com.ifcdpp.ifcdpp.repo.CategoryRepository;
 import com.ifcdpp.ifcdpp.repo.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -69,14 +70,14 @@ public class ProductService {
         return categoryRepository.findAll().stream().map(this::mapCategory).collect(Collectors.toList());
     }
 
-    public void saveProduct(Product product) {
-        ProductEntity entity = new ProductEntity();
+    public Long saveProduct(ProductRequest product) {
+        ProductEntity entity = productRepository.findById(product.getId() == null ? -1 : product.getId())
+                .orElse(new ProductEntity());
 
         entity.setTitle(product.getTitle());
         entity.setDescription(product.getDescription());
         entity.setDeveloper(product.getDeveloper());
         entity.setPrice(product.getPrice());
-        entity.setDownloadLink(product.getDownloadLink());
         entity.setImageLink(product.getImageLink());
         entity.setPreferences(product.getPreferences());
 
@@ -90,7 +91,7 @@ public class ProductService {
             entity.setCategory(categoryEntity);
         }
 
-        productRepository.save(entity);
+        return productRepository.save(entity).getId();
 
     }
 

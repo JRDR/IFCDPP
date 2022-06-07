@@ -60,7 +60,7 @@
         </div>
 
         <div class="pages-container">
-            <button class="page-button" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
+            <button class="page-button" th:if="${catalog.pagesNum > 0}" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
         </div>
 
     </div>
