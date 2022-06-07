@@ -12,8 +12,15 @@
 <main>
 
 <div class ="main-catalog">
+    <blog>
 
-    <img style="width:500px; height:500px;" th:src="@{/img/1.png}" alt="PGS">
+        <div class="posts-container">
+            <div class="blog-post" th:each="entry : ${map.entrySet()}">
+                <h3 th:text="${entry.key}"/> <!-- Категория -->
+                <p th:each="product: ${entry.value}" th:text="${product.title}"/> <!-- Продукты -->
+            </div>
+        </div>
+    </blog>
 </div>
 
 <div class ="main-about">

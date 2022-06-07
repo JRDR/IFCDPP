@@ -14,8 +14,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,21 @@ public class ProductService {
         int pagesNum = entities.getTotalPages();
 
         return new Catalog(products, pagesNum);
+    }
+
+    public Map<String, List<Product>> getProductsForMain() {
+        Pageable pageWithFourElems = PageRequest.of(0, 4);
+        Pageable pageWithThreeElems = PageRequest.of(0, 4);
+        Page<CategoryEntity> categories = categoryRepository.findAll(pageWithFourElems);
+
+        Map<String, List<Product>> productsWithCategories = new HashMap<>();
+        for (CategoryEntity category : categories) {
+            Page<ProductEntity> products = productRepository.findAllByCategory_Id(category.getId(), pageWithThreeElems);
+            productsWithCategories.put(category.getTitle(),
+                    products.stream().map(this::mapProductForCatalog).collect(Collectors.toList()));
+        }
+
+        return productsWithCategories;
     }
 
     public Product getProductById(Long id) {
