@@ -28,6 +28,11 @@ public class UserService {
         return mapUserProfile(entity);
     }
 
+    public Profile getUserProfile(String email) {
+        User entity = userRepository.findByEmail(email).orElseThrow(() -> new MessageException("User not found"));
+        return mapUserProfile(entity);
+    }
+
     public boolean registerUser(RegistrationModel registrationModel) {
         if (!registrationModel.getPassword().equals(registrationModel.getConfirm())) {
             return false;
