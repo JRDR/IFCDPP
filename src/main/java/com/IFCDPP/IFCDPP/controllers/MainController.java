@@ -3,8 +3,6 @@ package com.ifcdpp.ifcdpp.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
 @Controller
 public class MainController {
 
@@ -32,7 +30,7 @@ public class MainController {
     }
 
     @GetMapping("/devinfo")
-    public String devinfo(Model model) {
+    public String devInfo(Model model) {
         model.addAttribute("title", "Поддержка");
         return "devinfo";
     }

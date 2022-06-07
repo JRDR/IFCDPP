@@ -2,6 +2,8 @@ package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.Role;
 import com.ifcdpp.ifcdpp.entity.User;
+import com.ifcdpp.ifcdpp.exceptions.MessageException;
+import com.ifcdpp.ifcdpp.models.Profile;
 import com.ifcdpp.ifcdpp.models.RegistrationModel;
 import com.ifcdpp.ifcdpp.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,11 @@ public class UserService {
 
     public User getUser(String email) {
         return userRepository.findByEmail(email).orElse(null);
+    }
+
+    public Profile getUserProfile(Long userId) {
+        User entity = userRepository.findById(userId).orElseThrow(() -> new MessageException("User not found"));
+        return mapUserProfile(entity);
     }
 
     public boolean registerUser(RegistrationModel registrationModel) {
@@ -41,6 +48,11 @@ public class UserService {
 
         userRepository.save(user);
         return true;
+    }
+
+    private Profile mapUserProfile(User entity) {
+        return Profile.builder().id(entity.getId()).login(entity.getLogin()).email(entity.getEmail())
+                .active(entity.isActive()).isAdmin(entity.getRoles().contains(Role.ADMIN)).build();
     }
 
 }

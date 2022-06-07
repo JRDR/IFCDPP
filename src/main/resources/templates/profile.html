@@ -11,8 +11,8 @@
 <header th:insert="blocks/header :: header"></header>
 
 <profile>
-
-
+    <h1 th:text="${user.login}"></h1>
+    <p th:text="${user.email}"></p>
 </profile>
 
 <footer th:insert="blocks/footer :: footer"></footer>
