@@ -21,6 +21,23 @@ public class ProductController {
     private final ProductService productService;
     private final FileService fileService;
 
+    @GetMapping("/catalog")
+    public String getCatalog(@RequestParam(required = false) Integer page,
+                             @RequestParam(required = false, defaultValue = "") String title,
+                             @RequestParam(required = false) Long categoryId, Model model) {
+        model.addAttribute("catalog", productService.getCatalogOnPage(page, title, categoryId));
+        model.addAttribute("categories", productService.getAllCategories());
+        model.addAttribute("currentCategory", categoryId);
+        model.addAttribute("currentQuery", title);
+        return "catalog";
+    }
+
+    @GetMapping("/catalog/add")
+    public String catalogAdd(Model model){
+        model.addAttribute("categories", productService.getAllCategories());
+        return "catalog-add";
+    }
+
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.getProductById(id));

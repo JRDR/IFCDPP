@@ -64,7 +64,14 @@ public class ProductService {
         entity.setImageLink(product.getImageLink());
 
         Optional<CategoryEntity> category = categoryRepository.findByTitle(product.getCategory());
-        category.ifPresent(entity::setCategory);
+        if (category.isPresent()) {
+            entity.setCategory(category.get());
+        } else {
+            CategoryEntity categoryEntity = new CategoryEntity();
+            categoryEntity.setTitle(product.getCategory());
+            categoryEntity = categoryRepository.save(categoryEntity);
+            entity.setCategory(categoryEntity);
+        }
 
         productRepository.save(entity);
 
