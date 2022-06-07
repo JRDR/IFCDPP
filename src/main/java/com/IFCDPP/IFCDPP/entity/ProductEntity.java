@@ -28,6 +28,8 @@ public class ProductEntity {
     private BigDecimal price;
     private String imageLink;
     private String developerLink;
+    @Type(type = "text")
+    private String preferences;
 
     @ManyToOne
     private CategoryEntity category;

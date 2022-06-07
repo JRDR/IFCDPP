@@ -62,6 +62,7 @@ public class ProductService {
         entity.setPrice(product.getPrice());
         entity.setDownloadLink(product.getDownloadLink());
         entity.setImageLink(product.getImageLink());
+        entity.setPreferences(product.getPreferences());
 
         Optional<CategoryEntity> category = categoryRepository.findByTitle(product.getCategory());
         if (category.isPresent()) {
@@ -99,6 +100,7 @@ public class ProductService {
                 .developer(entity.getDeveloper()).price(entity.getPrice()).downloadLink(entity.getDownloadLink())
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
                 .imageLink(entity.getImageLink()).developerLink(entity.getDeveloperLink())
+                .preferences(entity.getPreferences())
                 .build();
     }
 

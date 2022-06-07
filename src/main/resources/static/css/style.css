@@ -8,34 +8,34 @@ body {
 }
 
 
-.blog-add{
-margin-right: 30%;
+.blog-add {
+    margin-right: 30%;
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
-        background-color: #686E70;
+    background-color: #686E70;
 }
 
-.blog-add h1{
+.blog-add h1 {
 }
 
-product-upload{
-margin-right: 30%;
+product-upload {
+    margin-right: 30%;
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
-        background-color: #686E70;
+    background-color: #686E70;
 }
 
-.catalog-add{
-margin-right: 30%;
+.catalog-add {
+    margin-right: 30%;
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
-        background-color: #686E70;
+    background-color: #686E70;
 }
 
-.page-button{
+.page-button {
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -44,16 +44,15 @@ margin-right: 30%;
     border-radius: 0px;
 }
 
-.page-button:hover{
- transition-duration:300ms;
+.page-button:hover {
+    transition-duration: 300ms;
     background: #FEFAF7;
     color: #565C5E;
 }
 
 
-
-h1{
- font-family: 'Russo One', sans-serif;
+h1 {
+    font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 24px;
     color: #E0EFF4;
@@ -81,9 +80,10 @@ li, a, button {
     color: #E0EFF4;
     text-decoration: none;
 }
-a:hover{
-transition-duration: 300ms;
-color: #A7D3C8;
+
+a:hover {
+    transition-duration: 300ms;
+    color: #A7D3C8;
 }
 
 #logolink {
@@ -113,40 +113,42 @@ color: #A7D3C8;
 .logoblock {
     padding-right: 15px;
 }
-.asignout{
-color: #A7D3C8;
+
+.asignout {
+    color: #A7D3C8;
     font-size: 0px;
     display: block;
     text-align: center;
 }
 
-.signout:hover{
-transition-duration: 300ms;
-color: #E0EFF4;
+.signout:hover {
+    transition-duration: 300ms;
+    color: #E0EFF4;
 }
 
-.signout{
-  color: #A7D3C8;
-      height: 14px;
-      font-size: 14px;
-      text-align: center;
-      padding: 0px 0px;
-      background: #565C5E;
-      border: 0 none;
-      cursor: pointer;
-      /* -webkit-border-radius: 5px; */
-      /* border-radius: 5px; */
-      font-family: 'Russo One', sans-serif;
+.signout {
+    color: #A7D3C8;
+    height: 14px;
+    font-size: 14px;
+    text-align: center;
+    padding: 0px 0px;
+    background: #565C5E;
+    border: 0 none;
+    cursor: pointer;
+    /* -webkit-border-radius: 5px; */
+    /* border-radius: 5px; */
+    font-family: 'Russo One', sans-serif;
 
 }
-.autho:hover{
-transition-duration: 300ms;
-color: #E0EFF4;
+
+.autho:hover {
+    transition-duration: 300ms;
+    color: #E0EFF4;
 }
 
-.reg:hover{
-transition-duration: 300ms;
-color: #A7D3C8;
+.reg:hover {
+    transition-duration: 300ms;
+    color: #A7D3C8;
 }
 
 button {
@@ -158,10 +160,9 @@ button {
 }
 
 
-
-.header button:hover{
-transition-duration: 300ms;
-color: #A7D3C8;
+.header button:hover {
+    transition-duration: 300ms;
+    color: #A7D3C8;
 }
 
 
@@ -320,9 +321,9 @@ form .user-details .input-box {
 }
 
 .confirm button:hover {
-  transition-duration:300ms;
-     background: #FEFAF7;
-     color: #565C5E;
+    transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 
 }
 
@@ -354,14 +355,16 @@ blog {
     width: 100%;
     padding: 25px 30px;
 }
-.blog-title{
-    text-align:center;
+
+.blog-title {
+    text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
     width: 100%;
     background-color: #686E70;
 }
+
 .blog-post {
     margin-bottom: 70px;
     width: 100%;
@@ -408,12 +411,12 @@ blog {
 }
 
 .blog-read button:hover {
-    transition-duration:300ms;
+    transition-duration: 300ms;
     background: #FEFAF7;
     color: #565C5E;
 }
 
-.blog-title button{
+.blog-title button {
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
@@ -422,10 +425,10 @@ blog {
     border-radius: 0px;
 }
 
-.blog-title button:hover{
-transition-duration:300ms;
- background: #FEFAF7;
-color: #565C5E;
+.blog-title button:hover {
+    transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 }
 
 /*****/
@@ -441,14 +444,14 @@ catalog {
     background-color: #B5C2C7;
 }
 
-.pages-container{
+.pages-container {
     display: flex;
     padding: 10px 0px 10px 50px;
     background-color: #686E70;
 }
 
-.search{
-text-align:center;
+.search {
+    text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
@@ -456,8 +459,8 @@ text-align:center;
     background-color: #686E70;
 }
 
-.product-title{
-    text-align:center;
+.product-title {
+    text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 15px;
@@ -465,26 +468,27 @@ text-align:center;
     background-color: #686E70;
 }
 
-.products-container{
+.products-container {
     display: inline-grid;
 
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
 }
-.product-description-box{
+
+.product-description-box {
 }
 
 .product-post {
-     text-overflow: ellipsis;
-     max-height: 172px;
-     padding-top: 15px;
-     margin-bottom: 30px;
-     width: 100%;
-     max-width: 700px;
-     background-color: #686E70;
-     overflow: hidden;
-     white-space: nowrap;
+    text-overflow: ellipsis;
+    max-height: 172px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 700px;
+    background-color: #686E70;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .product-post h3 {
@@ -505,14 +509,14 @@ text-align:center;
     text-decoration: none;
 }
 
-.product-post h4{
-color: #A7D3C8;
+.product-post h4 {
+    color: #A7D3C8;
     font-size: 14px;
 }
 
-.product-developer h4:hover{
-transition-duration: 300ms;
-color: #E0EFF4;
+.product-developer h4:hover {
+    transition-duration: 300ms;
+    color: #E0EFF4;
 }
 
 .product-post button {
@@ -525,9 +529,9 @@ color: #E0EFF4;
 }
 
 .product-post button:hover {
-   transition-duration:300ms;
-      background: #FEFAF7;
-      color: #565C5E;
+    transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 }
 
 .product-post p {
@@ -549,19 +553,20 @@ color: #E0EFF4;
     float: right;
     background: #686E70;
 }
-.product-image{
-padding: 10px 15px 8px 10px;
-float:left;
-width:100px;
-height:100px;
+
+.product-image {
+    padding: 10px 15px 8px 10px;
+    float: left;
+    width: 100px;
+    height: 100px;
 }
 
-.product-image-box{
+.product-image-box {
 
 }
 
-.searchbutton{
- font-family: 'Russo One', sans-serif;
+.searchbutton {
+    font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #E0EFF4;
@@ -569,10 +574,10 @@ height:100px;
     border-radius: 0px;
 }
 
-.searchbutton:hover{
-transition-duration:300ms;
-      background: #FEFAF7;
-      color: #565C5E;
+.searchbutton:hover {
+    transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 }
 
 /*****/
@@ -581,16 +586,14 @@ transition-duration:300ms;
 /*****/
 /*****/
 
-main{
-display: flex;
-     padding: 10px;
-     height: 70vh;
-     justify-content: center;
-     align-items: center;
-     background-color: #B5C2C7;
+main {
+    display: flex;
+    padding: 10px;
+    height: 70vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #B5C2C7;
 }
-
-
 
 
 /*****/
@@ -622,9 +625,9 @@ display: flex;
     background: #686E70;
 }
 
-.post-back button{
-float:right;
-font-family: 'Russo One', sans-serif;
+.post-back button {
+    float: right;
+    font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #E0EFF4;
@@ -632,8 +635,8 @@ font-family: 'Russo One', sans-serif;
     border-radius: 0px;
 }
 
-.post-back button:hover{
-transition-duration:300ms;
+.post-back button:hover {
+    transition-duration: 300ms;
     background: #FEFAF7;
     color: #565C5E;
 }
@@ -645,21 +648,22 @@ transition-duration:300ms;
 /*****/
 
 
-product{
+product {
     padding: 10px 0px 10px 50px;
     background-color: #B5C2C7;
 }
 
-.products-container{
-display: inline-grid;
+.products-container {
+    display: inline-grid;
 
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
 }
-.product-head{
-margin-bottom: 15px;
-display: flex;
+
+.product-head {
+    margin-bottom: 15px;
+    display: flex;
     /* justify-content: space-between; */
     align-items: center;
     text-align: center;
@@ -670,49 +674,50 @@ display: flex;
     background-color: #686E70;
 }
 
-.product-developer{
-margin-left: 40px;
+.product-developer {
+    margin-left: 40px;
 }
 
-.product-developer{
-color: #A7D3C8;
+.product-developer {
+    color: #A7D3C8;
     font-size: 14px;
 }
 
-.product-developer:hover{
-transition-duration: 300ms;
-color: #E0EFF4;
+.product-developer:hover {
+    transition-duration: 300ms;
+    color: #E0EFF4;
 }
 
 .product-description-block {
-   padding: 10px 10px 10px 0px;
-       font-family: 'Russo One', sans-serif;
-       font-weight: 400;
-       font-size: 14px;
-       color: #E0EFF4;
-       text-decoration: none;
-       overflow: hidden;
-       text-overflow: ellipsis;
-       margin-bottom: 0px;
-       /* width: 100%; */
-       background-color: #686E70;
+    padding: 10px 10px 10px 0px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #E0EFF4;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
+    /* width: 100%; */
+    background-color: #686E70;
 }
 
-.product-description-block p{
-padding-left: 15px;
+.product-description-block p {
+    white-space: pre-wrap;
+    padding-left: 15px;
 }
 
-.product-buttons{
-margin-top: 15px;
-background-color: #686E70;
-display: flex;
-align-items: center;
+.product-buttons {
+    margin-top: 15px;
+    background-color: #686E70;
+    display: flex;
+    align-items: center;
 }
 
 
-.product-buttons p{
-margin-right: 5%;
-font-family: 'Russo One', sans-serif;
+.product-buttons p {
+    margin-right: 5%;
+    font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #E0EFF4;
@@ -720,8 +725,8 @@ font-family: 'Russo One', sans-serif;
     text-align: center;
 }
 
-.product-buttons button{
-font-family: 'Russo One', sans-serif;
+.product-buttons button {
+    font-family: 'Russo One', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: #E0EFF4;
@@ -729,20 +734,19 @@ font-family: 'Russo One', sans-serif;
     border-radius: 0px;
 }
 
-.product-buttons button:hover{
-transition-duration:300ms;
+.product-buttons button:hover {
+    transition-duration: 300ms;
     background: #FEFAF7;
     color: #565C5E;
 }
 
 
-
-.product-catalog-button{
-margin-right:auto;
+.product-catalog-button {
+    margin-right: auto;
 }
 
-.product-download-button{
-float:right;
+.product-download-button {
+    float: right;
 }
 
 /******/
@@ -750,57 +754,58 @@ float:right;
 /******/
 /******/
 
-support{
-display: flex;
+support {
+    display: flex;
     padding: 10px 0px 10px 50px;
     background-color: #B5C2C7;
 }
 
-.support-container{
-display: inline-grid;
+.support-container {
+    display: inline-grid;
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
 }
 
-.user-info{
-display: flex;
-margin-bottom:20px;
+.user-info {
+    display: flex;
+    margin-bottom: 20px;
 }
 
-.email-support-box{
-margin-left:15px;
+.email-support-box {
+    margin-left: 15px;
 }
 
-.support-info{
-display: inline-grid;
+.support-info {
+    display: inline-grid;
 }
 
-.theme-support-box{
-margin-bottom:20px;
-width: 361px;
+.theme-support-box {
+    margin-bottom: 20px;
+    width: 361px;
 }
 
 .support-info textarea {
-resize: none;
-    width: 422px; height: 171px;
+    resize: none;
+    width: 422px;
+    height: 171px;
 }
 
-.confirm-support{
+.confirm-support {
     margin-top: 10px;
     padding-bottom: 0px;
     display: block;
 }
 
-.confirm-support button:hover{
-  transition-duration:300ms;
-       background: #FEFAF7;
-       color: #565C5E;
+.confirm-support button:hover {
+    transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
 }
 
 
 .support-contact-link {
-margin-left: 10px;
+    margin-left: 10px;
     padding: 10px 10px 10px 10px;
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
@@ -815,26 +820,26 @@ margin-left: 10px;
 }
 
 
-contacts{
-display: flex;
+contacts {
+    display: flex;
     padding: 10px 0px 10px 50px;
     background-color: #B5C2C7;
 }
 
-.contacts-container{
-display: inline-grid;
+.contacts-container {
+    display: inline-grid;
     max-width: 700px;
     width: 100%;
     padding: 25px 30px;
 }
 
-.devinfo-info{
-display: flex;
+.devinfo-info {
+    display: flex;
     margin-bottom: 0px;
 }
 
 .dev-post p {
-background-color: #686E70;
+    background-color: #686E70;
     padding: 10px 10px 0px 10px;
     font-family: 'Russo One', sans-serif;
     font-weight: 400;

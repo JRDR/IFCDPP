@@ -20,5 +20,6 @@ public class Product {
     private String category;
     private String imageLink;
     private String developerLink;
+    private String preferences;
 
 }
