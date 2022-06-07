@@ -7,19 +7,17 @@
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-
 <header th:insert="blocks/header :: header"></header>
 
-<div class ="blog-add">
-    <h1>Создать запись</h1>
-   <form action="/blog/add" method="post" name="post">
-       <input type="text" name="title" placeholder="Название" class="form-control"><br>
-       <textarea name="text" placeholder="Текст" class="form-control"></textarea><br>
-       <button type="submit">Добавить</button>
-   </form>
+<contacts>
+    <div class ="contacts-container">
+
+        <div class="blog-title">
+            <h1>Контакты</h1>
+        </div>
 
     </div>
-</div>
+</contacts>
 
 <footer th:insert="blocks/footer :: footer"></footer>
 

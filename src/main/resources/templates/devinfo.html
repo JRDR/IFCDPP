@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${title}"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+  <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="dev-post" style="margin-left: 10px;"></div>
+
+<header th:insert="blocks/header :: header"></header>
+<blog>
+
+  <div class="posts-container">
+
+    <div class="blog-title">
+      <h1>РАЗРАБОТЧИКАМ</h1>
+    </div>
+
+    <div class ="devinfo-info">
+
+    <div class="dev-post">
+      <span style="text-align: center;">
+    <p style="font-size:16px; margin-bottom:0px;">Допустимые виды контента</p>
+      <p>Обработка фото. Образование и обучение.</p>
+      <p>Дизайн и иллюстрация. Анимация и моделирование.</p>
+        <p>Работа со звуком и видео. Среды разработки.</p>
+      <p style="padding-bottom:10px; margin-bottom: 10px;">Инструменты для игроков. Финансы и бухгалтерия.</p>
+  </span>
+
+      <span style="text-align: center;">
+      <p style="font-size:16px; margin-bottom:0px; text-align: center;">Что не следует распространять</p>
+       <p>Высказывания клеветнического характера или заявления, оскорбляющие честь и достоинство.</p>
+        <p>Контент, правами на который вы не обладаете.</p>
+      <p>Приложения, изменяющие работу компьютера пользователя неожиданным для него способом или наносящие вред, к примеру, вирусы или вредоносные программы.</p>
+      <p>Приложения, пытающиеся обманным путём получить конфиденциальную информацию.</p>
+      <p style="padding-bottom:10px; margin-bottom: 10px;">Приложения, созданные по технологии блокчейна, которые осуществляют выпуск или обмен криптовалюты или NFT.</p>
+      </span>
+
+    </div>
+
+      </div>
+
+
+
+    <div class="dev-post">
+      <span style="text-align: center;">
+      <p style="font-size:16px; margin-bottom:0px;">Платёжная информация</p>
+        <p style="padding-bottom:10px; margin-bottom: 10px;"> Нам потребуется точная банковская информация о том, куда перечислять средства, вырученные с продаж вашего приложения: код банка, номер банковского счета и адрес банка.
+
+        Обратите внимание, что имя и фамилия владельца банковского счёта должны совпадать с юридической информацией, указанной выше. Если вы регистрируетесь от лица компании, у которой нет расчётного счёта, понадобится его открыть.</p>
+
+
+      <p style="font-size:16px; margin-bottom:0px;">Проверка продукта</p>
+        <p style="padding-bottom:10px; margin-bottom: 10px;">До появления страницы в магазине мы проверим работу приложения, чтобы удостовериться в отсутствии ошибок и вредоносных элементов. Обычно проверка занимает от 1 до 5 дней.</p>
+      </span>
+    </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</blog>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<support>
+<div class ="support-container">
+
+    <div class="blog-title">
+        <h1>Поддержка</h1>
+    </div>
+
+    <form method="post">
+
+
+        <div class ="user-info">
+
+        <div class="input-box">
+            <input type="text" placeholder="Ваше имя" required>
+        </div>
+
+        <div class="input-box">
+            <input class="email-support-box" type="email" placeholder="Почта для связи" required name="email">
+        </div>
+
+        </div>
+
+        <div class ="support-info">
+        <input class="theme-support-box" type="text" placeholder="Тема обращения" required>
+        <textarea name="text" placeholder="Расскажите, что случилось" class="form-control"></textarea>
+        </div>
+
+        <div class ="confirm-support">
+            <button type ="submit" value="register">ОТПРАВИТЬ</button>
+        </div>
+
+    </form>
+
+    <div class="support-contact-link">
+        <a href="/contacts">Другие способы связи с нами</a>
+    </div>
+
+</div>
+
+
+</support>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>
