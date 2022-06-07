@@ -8,7 +8,8 @@
             <ul class="nav-links">
                 <li><a id="catalog" href="/catalog">КАТАЛОГ</a></li>
                 <li><a href="/blog">О НАС</a></li>
-                <li><a href="/support">ПОДДЕРЖКА</a></li>
+                <li sec:authorize="hasAuthority('ADMIN')"><a href="/support-admin">ПОДДЕРЖКА</a></li>
+                <li sec:authorize="!hasAuthority('ADMIN') && isAuthenticated()"><a href="/support">ПОДДЕРЖКА</a></li>
             </ul>
         </nav>
     <div class = registration>

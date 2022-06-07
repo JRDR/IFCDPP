@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<blog>
+
+    <div class="posts-container">
+
+        <div class="blog-title">
+
+            <h1>Обращения</h1>
+
+        </div>
+        <div class="blog-post" th:each="issue : ${issues}">
+            <h3 th:text="${issue.topic}"/>
+            <p th:text="${issue.description}"/>
+            <p th:text="${issue.user.email}"/>
+            <div class="blog-read">
+                <form th:action="@{/support/delete/{id}(id = ${issue.id})}" method="post">
+                    <button type="submit">УДАЛИТЬ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</blog>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

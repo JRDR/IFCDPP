@@ -16,24 +16,11 @@
         <h1>Поддержка</h1>
     </div>
 
-    <form method="post"  style="background:#686E70; padding: 10px 10px 0px 10px;">
-
-
-        <div class ="user-info">
-
-        <div class="input-box">
-            <input type="text" placeholder="Ваше имя" required>
-        </div>
-
-        <div class="input-box">
-            <input class="email-support-box" type="email" placeholder="Почта для связи" required name="email">
-        </div>
-
-        </div>
+    <form action="/support" method="post"  style="background:#686E70; padding: 10px 10px 0px 10px;">
 
         <div class ="support-info">
-        <input class="theme-support-box" type="text" placeholder="Тема обращения" required>
-        <textarea name="text" placeholder="Расскажите, что случилось" class="form-control"></textarea>
+        <input class="theme-support-box" type="text" placeholder="Тема обращения" required name="topic">
+        <textarea placeholder="Расскажите, что случилось" class="form-control" name="description"></textarea>
         </div>
 
         <div class ="confirm-support">

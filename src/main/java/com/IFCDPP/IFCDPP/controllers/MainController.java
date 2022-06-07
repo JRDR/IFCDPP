@@ -17,12 +17,6 @@ public class MainController {
         return "about";
     }
 
-    @GetMapping("/support")
-    public String support(Model model) {
-        model.addAttribute("title", "Поддержка");
-        return "support";
-    }
-
     @GetMapping("/contacts")
     public String contacts(Model model) {
         model.addAttribute("title", "Поддержка");
