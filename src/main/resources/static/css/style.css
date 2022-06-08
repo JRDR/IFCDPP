@@ -661,6 +661,7 @@ transition-duration: 300ms;
     color: #A7D3C8;
 }
 .main-product h3 {
+text-transform: uppercase;
     padding: 15px 10px 10px 10px;
     font-family: 'Russo One', sans-serif;
     font-weight: 400;
