@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 body {
-    background: linear-gradient(94deg, rgba(181,194,199,1) 0%, rgba(125,156,168,1) 34%, rgba(166,210,227,1) 100%);
+    background: linear-gradient(100deg, rgba(181,194,199,1) 0%, rgba(125,156,168,1) 45%, rgba(166,210,227,1) 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -352,7 +352,7 @@ form .user-details .input-box {
 blog {
     display: flex;
     padding: 10px 0px 10px 50px;
-    background: linear-gradient(94deg, rgba(181,194,199,1) 0%, rgba(125,156,168,1) 34%, rgba(166,210,227,1) 100%);
+
 }
 
 
