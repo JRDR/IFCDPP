@@ -972,6 +972,33 @@ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30p
     padding: 25px 30px;
 }
 
+ .contacts-info {
+     display: flex;
+     box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+     text-overflow: ellipsis;
+     /* max-height: 172px; */
+     padding: 15px 0px 15px 15px;
+     margin-bottom: 30px;
+     /* width: 100%; */
+     /* max-width: 700px; */
+     background-color: #686E70;
+     overflow: hidden;
+     justify-content: center;
+     white-space: nowrap;
+}
+
+.contacts-info p{
+ background-color: #686E70;
+    padding: 10px 10px 0px 10px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #E0EFF4;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .devinfo-info {
     display: flex;
     margin-bottom: 0px;
