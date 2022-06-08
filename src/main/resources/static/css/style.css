@@ -758,7 +758,6 @@ display: flex;
 
 product {
     padding: 10px 0px 10px 50px;
-    background: linear-gradient(94deg, rgba(181,194,199,1) 0%, rgba(125,156,168,1) 34%, rgba(166,210,227,1) 100%);
 }
 
 .products-container {
@@ -894,7 +893,6 @@ padding-left: 15px;
 support {
     display: flex;
     padding: 10px 0px 10px 50px;
-   background: linear-gradient(94deg, rgba(181,194,199,1) 0%, rgba(125,156,168,1) 34%, rgba(166,210,227,1) 100%);
 }
 
 .support-container {
