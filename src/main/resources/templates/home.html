@@ -21,7 +21,7 @@
         <div class="main-catalog-container">
 
             <div class="main-product" th:each="entry : ${map.entrySet()}">
-                <h3 th:text="${entry.key}"/>
+                <a th:href="'/catalog?categoryId='+${entry.key.id}"><h3 th:text="${entry.key.title}"/></a>
 
                 <div class="main-catalog-info">
 

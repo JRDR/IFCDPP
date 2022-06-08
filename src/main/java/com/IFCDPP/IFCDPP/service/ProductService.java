@@ -46,15 +46,15 @@ public class ProductService {
         return new Catalog(products, pagesNum);
     }
 
-    public Map<String, List<Product>> getProductsForMain() {
+    public Map<Category, List<Product>> getProductsForMain() {
         Pageable pageWithFourElems = PageRequest.of(0, 4);
         Pageable pageWithThreeElems = PageRequest.of(0, 4);
         Page<CategoryEntity> categories = categoryRepository.findAll(pageWithFourElems);
 
-        Map<String, List<Product>> productsWithCategories = new HashMap<>();
+        Map<Category, List<Product>> productsWithCategories = new HashMap<>();
         for (CategoryEntity category : categories) {
             Page<ProductEntity> products = productRepository.findAllByCategory_Id(category.getId(), pageWithThreeElems);
-            productsWithCategories.put(category.getTitle(),
+            productsWithCategories.put(mapCategory(category),
                     products.stream().map(this::mapProductForCatalog).collect(Collectors.toList()));
         }
 
@@ -80,6 +80,7 @@ public class ProductService {
         entity.setPrice(product.getPrice());
         entity.setImageLink(product.getImageLink());
         entity.setPreferences(product.getPreferences());
+        entity.setDeveloperLink(product.getDeveloperLink());
 
         Optional<CategoryEntity> category = categoryRepository.findByTitle(product.getCategory());
         if (category.isPresent()) {
