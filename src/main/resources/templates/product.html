@@ -16,7 +16,7 @@
         <div class="product-head">
             <img class="product-image" th:src="${product.imageLink}">
             <h1 th:text="${product.title}"></h1>
-            <a th:href ="${product.imageLink}" class ="product-developer" th:text="${product.developer}"/>
+            <a th:href ="${product.developerLink}" class ="product-developer" th:text="${product.developer}"/>
         </div>
 
         <div class="blog-title" sec:authorize="hasAuthority('ADMIN')">
@@ -27,9 +27,6 @@
             <p th:text="${product.description}"/>
         </div>
 
-        <div class="product-description-block">
-            <p th:text="${product.preferences}"/>
-        </div>
 
 
         <div class="product-buttons">
@@ -42,6 +39,11 @@
             <div sec:authorize="isAuthenticated()">
             <a th:href="${product.downloadLink}" class="product-download-button"><button>СКАЧАТЬ</button></a>
             </div>
+        </div>
+
+        <div class="product-preferences-block">
+            <h3>Системные требования:</h3>
+            <p th:text="${product.preferences}"/>
         </div>
 
 </div>

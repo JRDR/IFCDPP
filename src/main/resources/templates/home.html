@@ -11,24 +11,36 @@
 
 <main>
 
-<div class ="main-catalog">
-    <blog>
+    <div class ="main-greetings">
+<h1>Добро пожаловать в Moon Distribution.</h1>
+    <h2>Система цифровой дистрибуции программных продуктов.</h2>
+    </div>
 
-        <div class="posts-container">
-            <div class="blog-post" th:each="entry : ${map.entrySet()}">
-                <h3 th:text="${entry.key}"/> <!-- Категория -->
-                <p th:each="product: ${entry.value}" th:text="${product.title}"/> <!-- Продукты -->
+<div class ="main-catalog">
+
+        <div class="main-catalog-container">
+
+            <div class="main-product" th:each="entry : ${map.entrySet()}">
+                <h3 th:text="${entry.key}"/>
+
+                <div class="main-catalog-info">
+
+
+                    <div class ="main-product-image-box">
+                    <img class="main-product-image"  th:each="product: ${entry.value}" th:src="${product.imageLink}">
+                    </div>
+
+                    <div class="main-product-text-box">
+
+            <a th:href="'/product/' + ${product.id}" th:each="product: ${entry.value}" th:text="${product.title}"/></a>
+                </div>
+                </div>
+
+                    </div>
+
+
             </div>
         </div>
-    </blog>
-</div>
-
-<div class ="main-about">
-
-</div>
-
-<div class ="main-contact">
-
 </div>
 
 </main>

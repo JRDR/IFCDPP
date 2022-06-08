@@ -11,8 +11,29 @@
 <header th:insert="blocks/header :: header"></header>
 
 <profile>
-    <h1 th:text="${user.login}"></h1>
-    <p th:text="${user.email}"></p>
+    <div class="profile-container">
+
+        <div class="blog-title">
+
+            <h1 th:text="${user.login}+' — Профиль пользователя'"/>
+
+        </div>
+
+    <div class="profile-userinfo">
+    <h1 th:text="'Имя: ' + ${user.login}"></h1>
+    </div>
+
+        <div class="profile-transaction-history">
+            <h1>История транзакций</h1>
+        </div>
+
+
+    </div>
+
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <button class="block-user-button">Заблокировать</button>
+    </div>
+
 </profile>
 
 <footer th:insert="blocks/footer :: footer"></footer>
