@@ -31,17 +31,34 @@
 
         <div class="product-buttons">
             <a href="/catalog" class="product-catalog-button"><button>КАТАЛОГ</button></a>
-            <p th:text="${product.price}"/>
+            <div th:if="${product.price != null}">
+            <p th:text="${product.price} + ' руб'"/>
+                </div>
+            <div style="margin-right: 15px;" th:if="${product.price == null}">
+                <p>БЕСПЛАТНО</p>
+            </div>
 
-            <div sec:authorize="isAnonymous()">
+            <div sec:authorize="isAnonymous()" th:if="${product.price != null}">
                 <a href="/login" class="product-download-button"><button>ПРИОБРЕСТИ</button></a>
             </div>
-            <div sec:authorize="isAuthenticated()">
+
+            <div sec:authorize="isAnonymous()" th:if="${product.price == null}">
+                <a href="/login" class="product-download-button"><button>СКАЧАТЬ</button></a>
+            </div>
+
+            <div sec:authorize="isAuthenticated()" th:if="${product.price == null}">
+                <a th:href="'/downloadFile/' + ${product.id}" class="product-download-button"><button>СКАЧАТЬ</button></a>
+                </div>
+
+
+            <div sec:authorize="isAuthenticated()" th:if="${product.price != null}">
+
                 <div th:switch="${paymentStatus.toString()}">
                     <a th:case="${'SUCCESS'}" th:href="'/downloadFile/' + ${product.id}" class="product-download-button"><button>СКАЧАТЬ</button></a>
-                    <div th:case="${'PENDING'}">ОЖИДАНИЕ ОПЛАТЫ</div>
+                    <div th:case="${'PENDING'}"><span class="purchase-waiting">ОЖИДАНИЕ ОПЛАТЫ</span></div>
                     <a th:case="*" th:href="'/purchase/' + ${product.id}" class="product-download-button"><button>ПРИОБРЕСТИ</button></a>
                 </div>
+
             </div>
         </div>
 

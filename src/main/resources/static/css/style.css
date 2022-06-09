@@ -1073,3 +1073,12 @@ transition-duration: 300ms;
     background: #FEFAF7;
     color: #565C5E;
 }
+
+.purchase-waiting{
+font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    margin-right: 20px;
+}
