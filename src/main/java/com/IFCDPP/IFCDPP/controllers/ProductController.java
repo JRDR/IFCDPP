@@ -1,6 +1,7 @@
 package com.ifcdpp.ifcdpp.controllers;
 
 import com.ifcdpp.ifcdpp.entity.User;
+import com.ifcdpp.ifcdpp.models.PaymentStatusModel;
 import com.ifcdpp.ifcdpp.models.Product;
 import com.ifcdpp.ifcdpp.models.ProductRequest;
 import com.ifcdpp.ifcdpp.service.FileService;
@@ -8,6 +9,7 @@ import com.ifcdpp.ifcdpp.service.PaymentService;
 import com.ifcdpp.ifcdpp.service.ProductService;
 import com.ifcdpp.ifcdpp.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,9 +57,14 @@ public class ProductController {
     public String getProduct(@PathVariable Long id, Model model) {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(email);
+        if (user == null) {
+            model.addAttribute("paymentStatus", PaymentStatusModel.CANCELLED);
+        } else {
+            model.addAttribute("paymentStatus", paymentService.checkPaymentFromDb(id, user.getId()));
+        }
 
         model.addAttribute("product", productService.getProductById(id));
-        model.addAttribute("paymentStatus", paymentService.checkPaymentFromDb(id, user.getId()));
+
         return "product";
     }
 
@@ -66,11 +73,7 @@ public class ProductController {
         Long newId = productService.saveProduct(product);
         if (product.getFile().getSize() != 0) {
             String fileName = fileService.storeFile(product.getFile());
-
-            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path(fileName)
-                    .toUriString();
-            productService.addDownloadLinkToProduct(fileDownloadUri, newId);
+            productService.addDownloadLinkToProduct(fileName, newId);
         }
         return "redirect:/product/" + newId;
     }

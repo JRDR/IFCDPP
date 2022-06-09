@@ -5,7 +5,9 @@ import com.ifcdpp.ifcdpp.entity.PaymentStatus;
 import com.ifcdpp.ifcdpp.entity.ProductEntity;
 import com.ifcdpp.ifcdpp.entity.User;
 import com.ifcdpp.ifcdpp.exceptions.MessageException;
+import com.ifcdpp.ifcdpp.models.Payment;
 import com.ifcdpp.ifcdpp.models.PaymentStatusModel;
+import com.ifcdpp.ifcdpp.models.Product;
 import com.ifcdpp.ifcdpp.repo.PaymentRepository;
 import com.ifcdpp.ifcdpp.repo.ProductRepository;
 import com.ifcdpp.ifcdpp.repo.UserRepository;
@@ -24,6 +26,7 @@ import java.util.Currency;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @PropertySource("classpath:application.properties")
@@ -94,6 +97,20 @@ public class PaymentService {
             return PaymentStatusModel.SUCCESS;
         }
         return PaymentStatusModel.PENDING;
+    }
+
+    public List<Payment> getPaymentsByUserId(Long userId) {
+        return paymentRepository.findAllByUser_Id(userId).stream().map(this::mapPayment).collect(Collectors.toList());
+    }
+
+    private Payment mapPayment(PaymentEntity entity) {
+        return Payment.builder().id(entity.getId()).product(mapProductForPayment(entity.getProduct()))
+                .status(entity.getStatus() == PaymentStatus.SUCCESS ? PaymentStatusModel.SUCCESS : PaymentStatusModel.PENDING)
+                .build();
+    }
+
+    private Product mapProductForPayment(ProductEntity entity) {
+        return Product.builder().id(entity.getId()).title(entity.getTitle()).price(entity.getPrice()).build();
     }
 
 

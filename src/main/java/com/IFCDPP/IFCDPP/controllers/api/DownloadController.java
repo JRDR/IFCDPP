@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,7 +40,8 @@ public class DownloadController {
 
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userService.getUser(email);
-        if (paymentService.checkPaymentFromDb(productId, user.getId()) == PaymentStatusModel.SUCCESS) {
+        if (product.getPrice() == null || product.getPrice().compareTo(BigDecimal.ZERO) == 0 ||
+                paymentService.checkPaymentFromDb(productId, user.getId()) == PaymentStatusModel.SUCCESS) {
             String contentType = null;
             try {
                 contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());

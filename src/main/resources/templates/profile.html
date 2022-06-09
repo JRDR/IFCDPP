@@ -23,14 +23,21 @@
     <h1 th:text="'Имя: ' + ${user.login}"></h1>
     </div>
 
-        <div class="profile-transaction-history">
+        <div th:if="${payments != null && payments.size != 0}" class="profile-transaction-history">
             <h1>История транзакций</h1>
+            <ul>
+                <li th:each="payment: ${payments}">
+                    <span th:text="${payment.id}"></span>
+                    <span th:text="${payment.product.title}"></span>
+                    <span th:text="${payment.status}"></span>
+                </li>
+            </ul>
         </div>
 
 
     </div>
 
-    <div sec:authorize="hasAuthority('ADMIN')">
+    <div th:if="${showModerate}" sec:authorize="hasAuthority('ADMIN')">
         <button class="block-user-button">Заблокировать</button>
     </div>
 
