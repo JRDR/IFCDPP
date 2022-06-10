@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/reset.css" th:href="@{/css/reset.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<support>
+<div class ="support-container">
+
+    <div class="blog-title">
+        <h1 th:text="'Отзыв на ' + ${product.title}"></h1>
+    </div>
+
+    <form action="/review" method="post"  style="background:#686E70; padding: 10px 10px 0px 10px;">
+
+        <input type="hidden" th:value="${product.id}" name="productId">
+        <div class ="support-info">
+        <input class="theme-support-box" type="text" placeholder="Тема отзыва" required name="topic">
+        <textarea placeholder="Расскажите ваши ощущения от использования продукта" class="form-control" name="description"></textarea>
+        </div>
+
+        <div class ="confirm-support">
+            <button type ="submit" value="register">ОТПРАВИТЬ</button>
+        </div>
+
+    </form>
+
+    <div class="support-contact-link">
+        <a th:href="'/product/' + ${product.id}">Вернуться к продукту</a>
+    </div>
+
+</div>
+
+
+</support>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

@@ -67,6 +67,19 @@
             <p th:text="${product.preferences}"/>
         </div>
 
+        <div class="product-preferences-block">
+            <ul>
+                <li th:each="review: ${product.reviews}">
+                    <h3 th:text="${review.user.login}"></h3>
+                    <p th:text="${review.topic}"></p>
+                    <p th:text="${review.description}"></p>
+                </li>
+            </ul>
+        </div>
+        <div sec:authorize="isAuthenticated()" th:if="${product.price == null || product.price.doubleValue() == 0 || paymentStatus.toString() == 'SUCCESS'}">
+            <a th:href="'/review?productId=' + ${product.id}" class="product-download-button"><button>Оставить отзыв</button></a>
+        </div>
+
 </div>
 
 

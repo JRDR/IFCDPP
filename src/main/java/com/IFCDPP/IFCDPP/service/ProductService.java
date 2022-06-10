@@ -2,11 +2,10 @@ package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.CategoryEntity;
 import com.ifcdpp.ifcdpp.entity.ProductEntity;
+import com.ifcdpp.ifcdpp.entity.ReviewEntity;
+import com.ifcdpp.ifcdpp.entity.User;
 import com.ifcdpp.ifcdpp.exceptions.MessageException;
-import com.ifcdpp.ifcdpp.models.Catalog;
-import com.ifcdpp.ifcdpp.models.Category;
-import com.ifcdpp.ifcdpp.models.Product;
-import com.ifcdpp.ifcdpp.models.ProductRequest;
+import com.ifcdpp.ifcdpp.models.*;
 import com.ifcdpp.ifcdpp.repo.CategoryRepository;
 import com.ifcdpp.ifcdpp.repo.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -119,11 +118,21 @@ public class ProductService {
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
                 .imageLink(entity.getImageLink()).developerLink(entity.getDeveloperLink())
                 .preferences(entity.getPreferences())
+                .reviews(entity.getReviews().stream().map(this::mapReview).collect(Collectors.toList()))
                 .build();
     }
 
     private Category mapCategory(CategoryEntity entity) {
         return Category.builder().id(entity.getId()).title(entity.getTitle()).build();
+    }
+
+    private Review mapReview(ReviewEntity entity) {
+        return Review.builder().id(entity.getId()).topic(entity.getTopic()).description(entity.getDescription())
+                .user(mapUserForReview(entity.getUser())).build();
+    }
+
+    private IssueUser mapUserForReview(User user) {
+        return IssueUser.builder().id(user.getId()).login(user.getLogin()).build();
     }
 
 }

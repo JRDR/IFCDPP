@@ -8,6 +8,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -33,4 +34,7 @@ public class ProductEntity {
 
     @ManyToOne
     private CategoryEntity category;
+
+    @OneToMany(mappedBy = "product")
+    private List<ReviewEntity> reviews;
 }

@@ -2,6 +2,7 @@ package com.ifcdpp.ifcdpp.controllers;
 
 import com.ifcdpp.ifcdpp.models.Profile;
 import com.ifcdpp.ifcdpp.service.PaymentService;
+import com.ifcdpp.ifcdpp.service.ReviewService;
 import com.ifcdpp.ifcdpp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,6 +17,7 @@ public class ProfileController {
 
     private final UserService userService;
     private final PaymentService paymentService;
+    private final ReviewService reviewService;
 
     @GetMapping("/profile")
     public String getCurrentProfile(Model model) {
@@ -23,6 +25,7 @@ public class ProfileController {
         Profile profile = userService.getUserProfile(email);
         model.addAttribute("user", profile);
         model.addAttribute("payments", paymentService.getPaymentsByUserId(profile.getId()));
+        model.addAttribute("reviews", reviewService.getAllReviewsByUser(profile.getId()));
         model.addAttribute("showModerate", false);
         return "profile";
     }
@@ -33,6 +36,7 @@ public class ProfileController {
         Profile profile = userService.getUserProfile(email);
         if (profile.getId().equals(userId)) return "redirect:/profile";
         model.addAttribute("user", userService.getUserProfile(userId));
+        model.addAttribute("reviews", reviewService.getAllReviewsByUser(userId));
         model.addAttribute("showModerate", true);
         return "profile";
     }

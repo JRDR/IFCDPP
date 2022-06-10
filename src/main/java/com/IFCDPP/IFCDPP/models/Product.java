@@ -3,6 +3,7 @@ package com.ifcdpp.ifcdpp.models;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,5 +22,6 @@ public class Product {
     private String imageLink;
     private String developerLink;
     private String preferences;
+    private List<Review> reviews;
 
 }
