@@ -52,6 +52,13 @@ public class ReviewService {
         }
     }
 
+    public Long deleteReview(Long id) {
+        ReviewEntity entity = reviewRepository.findById(id).orElseThrow(() -> new MessageException("Review not found"));
+        Long productId = entity.getProduct().getId();
+        reviewRepository.delete(entity);
+        return productId;
+    }
+
     private Review mapReview(ReviewEntity entity) {
         return Review.builder().id(entity.getId()).topic(entity.getTopic()).description(entity.getDescription())
                 .product(mapProductForReview(entity.getProduct())).build();
