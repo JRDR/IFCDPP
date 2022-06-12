@@ -71,6 +71,15 @@ public class PaymentService {
         return client.createPaymentForm(new PaymentInfo(publicKey, amount, billId, successUrl));
     }
 
+    public void cancelPayment(String email, Long productId) {
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new MessageException("User not found"));
+        PaymentEntity payment = paymentRepository.findByProduct_IdAndUser_Id(productId, user.getId())
+                .orElseThrow(() -> new MessageException("Payment not found"));
+
+        client.cancelBill(payment.getId());
+        paymentRepository.delete(payment);
+    }
+
     public void checkPayment(String paymentId) {
         PaymentEntity payment = paymentRepository.findById(paymentId).orElseThrow(() -> new MessageException("Payment not found"));
         BillResponse response = client.getBillInfo(payment.getId());

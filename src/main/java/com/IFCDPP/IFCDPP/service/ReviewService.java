@@ -39,7 +39,7 @@ public class ReviewService {
         ProductEntity product = productRepository.findById(review.getProductId())
                 .orElseThrow(() -> new MessageException("Product not found"));
         if (product.getPrice() == null || product.getPrice().compareTo(BigDecimal.ZERO) == 0
-                || paymentService.checkPaymentFromDb(review.getId(), user.getId()) == PaymentStatusModel.SUCCESS) {
+                || paymentService.checkPaymentFromDb(review.getProductId(), user.getId()) == PaymentStatusModel.SUCCESS) {
             ReviewEntity entity = new ReviewEntity();
             entity.setTopic(review.getTopic());
             entity.setDescription(review.getDescription());

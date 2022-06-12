@@ -47,8 +47,9 @@
 
     </div>
 
-    <div th:if="${showModerate}" sec:authorize="hasAuthority('ADMIN')">
-        <button class="block-user-button">Заблокировать</button>
+    <div th:if="${showModerate}" sec:authorize="hasAuthority('ADMIN')" th:switch="${user.active}">
+        <form th:action="'/ban/' + ${user.id}" method="post" th:case="true"><button type="submit" class="block-user-button">Заблокировать</button></form>
+        <form th:action="'/unban/' + ${user.id}" method="post" th:case="false"><button type="submit" class="block-user-button">Разблокировать</button></form>
     </div>
 
 </profile>

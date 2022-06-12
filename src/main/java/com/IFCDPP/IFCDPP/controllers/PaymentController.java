@@ -21,6 +21,13 @@ public class PaymentController {
         return "redirect:" + paymentService.createForm(email, productId);
     }
 
+    @GetMapping("/cancel/{id}")
+    public String cancelPurchase(@PathVariable("id") Long productId) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        paymentService.cancelPayment(email, productId);
+        return "redirect:/product/" + productId;
+    }
+
     @GetMapping("/checkPayment")
     public String checkPayment(@RequestParam("productId") Long productId, @RequestParam("paymentId") String paymentId, Model model) {
         paymentService.checkPayment(paymentId);

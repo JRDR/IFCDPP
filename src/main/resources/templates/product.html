@@ -55,7 +55,7 @@
 
                 <div th:switch="${paymentStatus.toString()}">
                     <a th:case="${'SUCCESS'}" th:href="'/downloadFile?productId=' + ${product.id}" class="product-download-button"><button>СКАЧАТЬ</button></a>
-                    <div th:case="${'PENDING'}"><span class="purchase-waiting">ОЖИДАНИЕ ОПЛАТЫ</span></div>
+                    <div th:case="${'PENDING'}"><span class="purchase-waiting">ОЖИДАНИЕ ОПЛАТЫ</span><a th:href="'/cancel/' + ${product.id}" class="product-download-button"><button>ОТМЕНИТЬ</button></a></div>
                     <a target=”_blank” th:case="*" th:href="'/purchase/' + ${product.id}" class="product-download-button"><button>ПРИОБРЕСТИ</button></a>
                 </div>
 

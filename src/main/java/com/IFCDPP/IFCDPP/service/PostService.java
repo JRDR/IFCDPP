@@ -1,6 +1,7 @@
 package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.PostEntity;
+import com.ifcdpp.ifcdpp.models.Blog;
 import com.ifcdpp.ifcdpp.models.Post;
 import com.ifcdpp.ifcdpp.repo.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,13 +24,16 @@ public class PostService {
         return postRepository.findAll().stream().map(this::mapPost).collect(Collectors.toList());
     }
 
-    public List<Post> getPostsOnPage(Integer page) {
+    public Blog getPostsOnPage(Integer page) {
         if (page == null) {
             page = 1;
         }
         Pageable pageWithFiveElems = PageRequest.of(page - 1, 5);
         Page<PostEntity> entities = postRepository.findAll(pageWithFiveElems);
-        return entities.stream().map(this::mapPost).collect(Collectors.toList());
+        int pagesNum = entities.getTotalPages();
+        List<Post> posts = entities.stream().map(this::mapPost).collect(Collectors.toList());
+
+        return new Blog(posts, pagesNum);
     }
 
     public void savePost(Post post) {

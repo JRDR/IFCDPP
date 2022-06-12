@@ -1,5 +1,6 @@
 package com.ifcdpp.ifcdpp.controllers;
 
+import com.ifcdpp.ifcdpp.models.Blog;
 import com.ifcdpp.ifcdpp.models.Post;
 import com.ifcdpp.ifcdpp.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @Controller
 @RequiredArgsConstructor
 public class BlogController {
@@ -21,8 +20,8 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String blogMain(@RequestParam(required = false) Integer page, Model model){
-    List<Post> posts = postService.getPostsOnPage(page);
-    model.addAttribute("posts",posts);
+    Blog blog = postService.getPostsOnPage(page);
+    model.addAttribute("blog", blog);
     return "blog-main";
     }
 

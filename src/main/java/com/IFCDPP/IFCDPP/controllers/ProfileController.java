@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -39,6 +40,12 @@ public class ProfileController {
         model.addAttribute("reviews", reviewService.getAllReviewsByUser(userId));
         model.addAttribute("showModerate", true);
         return "profile";
+    }
+
+    @PostMapping({ "/ban/{id}", "/unban/{id}" })
+    public String banUser(@PathVariable(name = "id") Long userId) {
+        userService.switchUserStatus(userId);
+        return "redirect:/profile/" + userId;
     }
 
 }

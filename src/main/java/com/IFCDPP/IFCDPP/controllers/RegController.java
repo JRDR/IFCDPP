@@ -21,9 +21,10 @@ public class RegController {
     }
 
     @PostMapping(path = "/reg")
-    public String register(RegistrationModel registrationModel) {
+    public String register(RegistrationModel registrationModel, Model model) {
         boolean isRegistered = userService.registerUser(registrationModel);
         if (!isRegistered) {
+            model.addAttribute("error", true);
             return "reg";
         }
         return "login";

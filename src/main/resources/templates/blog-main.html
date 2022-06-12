@@ -23,7 +23,7 @@
         </div>
 
     </div>
-    <div class="blog-post" th:each="post : ${posts}">
+    <div class="blog-post" th:each="post : ${blog.posts}">
     <h3 th:text="${post.title}"/>
         <p th:text="${post.text}"/>
         <div class="blog-read">
@@ -33,6 +33,12 @@
     </div>
 </div>
 </blog>
+
+<div th:if="${blog.pagesNum > 0}" class="pages-container">
+    <a th:each="i : ${#numbers.sequence(1, blog.pagesNum)}" th:href="'/blog?page=' + ${i}">
+        <button class="page-button"   th:text="${i}" th:value="${i}"></button>
+    </a>
+</div>
 
 <footer th:insert="blocks/footer :: footer"></footer>
 

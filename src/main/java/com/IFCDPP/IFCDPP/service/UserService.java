@@ -55,6 +55,12 @@ public class UserService {
         return true;
     }
 
+    public void switchUserStatus(Long userId) {
+        User entity = userRepository.findById(userId).orElseThrow(() -> new MessageException("User not found"));
+        entity.setActive(!entity.isActive());
+        userRepository.save(entity);
+    }
+
     private Profile mapUserProfile(User entity) {
         return Profile.builder().id(entity.getId()).login(entity.getLogin()).email(entity.getEmail())
                 .active(entity.isActive()).isAdmin(entity.getRoles().contains(Role.ADMIN)).build();
