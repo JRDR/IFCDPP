@@ -31,14 +31,16 @@
         <a th:href="'/blog/' + ${post.id}"><button>ЧИТАТЬ</button></a>
         </div>
     </div>
-</div>
-</blog>
 
-<div th:if="${blog.pagesNum > 0}" class="pages-container">
-    <a th:each="i : ${#numbers.sequence(1, blog.pagesNum)}" th:href="'/blog?page=' + ${i}">
-        <button class="page-button"   th:text="${i}" th:value="${i}"></button>
-    </a>
+        <div th:if="${blog.pagesNum > 0}" class="pages-container">
+            <a th:each="i : ${#numbers.sequence(1, blog.pagesNum)}" th:href="'/blog?page=' + ${i}">
+                <button class="page-button"   th:text="${i}" th:value="${i}"></button>
+            </a>
+        </div>
+
 </div>
+
+</blog>
 
 <footer th:insert="blocks/footer :: footer"></footer>
 

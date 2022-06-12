@@ -1082,3 +1082,47 @@ font-family: 'Russo One', sans-serif;
     text-decoration: none;
     margin-right: 20px;
 }
+
+.review-block{
+width: 100%;
+padding: 10px 10px 10px 10px;
+    background: #686E70;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+}
+
+
+.reviews-container{
+margin-top: 15px;
+ padding: 10px 10px 10px 0px;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #E0EFF4;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0px;
+    /* width: 100%; */
+
+}
+
+.reviews-container button{
+font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #E0EFF4;
+    text-decoration: none;
+    border-radius: 0px;
+}
+
+.reviews-container button:hover{
+ transition-duration: 300ms;
+    background: #FEFAF7;
+    color: #565C5E;
+}
