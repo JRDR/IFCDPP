@@ -1,6 +1,5 @@
 package com.ifcdpp.ifcdpp.controllers;
 
-import com.ifcdpp.ifcdpp.entity.User;
 import com.ifcdpp.ifcdpp.models.RegistrationModel;
 import com.ifcdpp.ifcdpp.service.UserService;
 import lombok.RequiredArgsConstructor;
