@@ -73,12 +73,12 @@
             </div>
             <ul>
                 <li class="review-block" th:each="review: ${product.reviews}">
-                    <a th:action="'/profile/' + ${review.user.id}"><h3 th:text="${review.user.login}"></h3></a>
+                    <a th:href="'/profile/' + ${review.user.id}"><h3 th:text="${review.user.login}"></h3></a>
                     <p th:text="${review.topic}"></p>
                     <p th:text="${review.description}"></p>
 
                     <div sec:authorize="hasAuthority('ADMIN')">
-                        <form th:action="'/review/delete/' + ${review.id}">
+                        <form th:action="'/review/delete/' + ${review.id}" method="post">
                             <button type="submit">УДАЛИТЬ</button>
                         </form>
                     </div>
