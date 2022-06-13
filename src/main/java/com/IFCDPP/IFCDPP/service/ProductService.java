@@ -108,7 +108,7 @@ public class ProductService {
         return Product.builder().id(entity.getId()).title(entity.getTitle()).description(entity.getDescription())
                 .category(entity.getCategory() == null ? "Без категории" : entity.getCategory().getTitle())
                 .developer(entity.getDeveloper()).imageLink(entity.getImageLink())
-                .developerLink(entity.getDeveloperLink())
+                .price(entity.getPrice()).developerLink(entity.getDeveloperLink())
                 .build();
     }
 
