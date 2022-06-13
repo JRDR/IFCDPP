@@ -55,11 +55,13 @@
 
 
             <div class="product-read">
+                <p th:text="${product.price}"/>
                 <a th:href="'/product/' + ${product.id}"><button>ПРОСМОТРЕТЬ</button></a>
             </div>
         </div>
 
         <div class="pages-container">
+
             <button class="page-button" th:if="${catalog.pagesNum > 0}" th:each="i : ${#numbers.sequence(1, catalog.pagesNum)}" th:text="${i}" th:value="${i}"></button>
         </div>
 
