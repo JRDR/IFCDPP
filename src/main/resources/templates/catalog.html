@@ -50,10 +50,7 @@
             <h3 th:text="${product.title}"/>
                 <h4 th:text="${product.developer}"/>
             </div>
-
             <p th:text="${product.description}"/>
-
-
             <div class="product-read">
                 <p th:text="${product.price}"/>
                 <a th:href="'/product/' + ${product.id}"><button>ПРОСМОТРЕТЬ</button></a>

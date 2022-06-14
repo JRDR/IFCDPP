@@ -89,9 +89,11 @@
 
 
 </div>
-
-
 </product>
+
+<div sec:authorize="hasAuthority('ADMIN')">
+    <a><button>Удалить продукт</button></a>
+</div>
 
 <footer th:insert="blocks/footer :: footer"></footer>
 </body>

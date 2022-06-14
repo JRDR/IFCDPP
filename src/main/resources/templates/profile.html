@@ -37,7 +37,7 @@
         <div th:if="${reviews != null && reviews.size != 0}" class="profile-transaction-history">
             <h1>История отзывов</h1>
             <ul>
-                <li th:each="review: ${reviews}">
+                <li style="margin-bottom:15px;" th:each="review: ${reviews}">
                     <a th:href="'/product/' + ${review.product.id}" th:text="${review.product.title}"></a>
                     <h4 th:text="${review.topic}"></h4>
                     <p th:text="${review.description}"></p>
