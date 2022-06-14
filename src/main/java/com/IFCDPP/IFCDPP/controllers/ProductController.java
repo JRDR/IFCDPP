@@ -66,7 +66,7 @@ public class ProductController {
         return "product";
     }
 
-    @PostMapping(path = "/product")
+    @PostMapping( "/product")
     public String saveProduct(ProductRequest product) {
         Long newId = productService.saveProduct(product);
         if (product.getFile().getSize() != 0) {
@@ -74,6 +74,13 @@ public class ProductController {
             productService.addDownloadLinkToProduct(fileName, newId);
         }
         return "redirect:/product/" + newId;
+    }
+
+    @PostMapping( "/product/delete/{id}")
+    public String deleteProduct(@PathVariable("id") Long productId) {
+        paymentService.cancelAllPaymentsOnProducts(productId);
+        productService.deleteProduct(productId);
+        return "redirect:/catalog";
     }
 
 }

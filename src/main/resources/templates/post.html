@@ -19,7 +19,7 @@
         </div>
 
         <div class="blog-title" sec:authorize="hasAuthority('ADMIN')">
-            <a><button>Редактировать</button></a>
+            <a th:href="'/blog/add?postId=' + ${post.id}"><button>Редактировать</button></a>
         </div>
 
         <div class="post-post">
@@ -33,7 +33,9 @@
 </blog>
 
 <div sec:authorize="hasAuthority('ADMIN')">
-    <a><button>Удалить запись</button></a>
+    <form th:action="'/blog/delete/' + ${post.id}" method="post">
+        <button type="submit">Удалить запись</button>
+    </form>
 </div>
 
 <footer th:insert="blocks/footer :: footer"></footer>

@@ -92,7 +92,9 @@
 </product>
 
 <div sec:authorize="hasAuthority('ADMIN')">
-    <a><button>Удалить продукт</button></a>
+    <form th:action="'/product/delete/' + ${product.id}" method="post">
+        <button type="submit">Удалить продукт</button>
+    </form>
 </div>
 
 <footer th:insert="blocks/footer :: footer"></footer>

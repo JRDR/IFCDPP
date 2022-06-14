@@ -95,6 +95,11 @@ public class ProductService {
 
     }
 
+    public void deleteProduct(Long productId) {
+        ProductEntity entity = productRepository.findById(productId).orElseThrow(() -> new MessageException("Product not found"));
+        productRepository.delete(entity);
+    }
+
     public void addDownloadLinkToProduct(String downloadLink, Long id) {
         Optional<ProductEntity> optional = productRepository.findById(id);
 

@@ -26,7 +26,12 @@ public class BlogController {
     }
 
     @GetMapping("/blog/add")
-    public String blogAdd(Model model){
+    public String blogAdd(@RequestParam(required = false) Long postId, Model model){
+        if (postId != null) {
+            model.addAttribute("post", postService.getPostById(postId));
+        } else {
+            model.addAttribute("post", new Post());
+        }
         return "blog-add";
     }
 
@@ -38,7 +43,13 @@ public class BlogController {
 
     @PostMapping(path = "/blog/add", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String blogPostAdd(Post post){
-        postService.savePost(post);
+        Long newId = postService.savePost(post);
+        return "redirect:/blog/" + newId;
+    }
+
+    @PostMapping("/blog/delete/{id}")
+    public String blogPostDelete(@PathVariable("id") Long postId){
+        postService.deletePost(postId);
         return "redirect:/blog";
     }
 }

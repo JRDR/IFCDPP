@@ -1,6 +1,7 @@
 package com.ifcdpp.ifcdpp.service;
 
 import com.ifcdpp.ifcdpp.entity.PostEntity;
+import com.ifcdpp.ifcdpp.exceptions.MessageException;
 import com.ifcdpp.ifcdpp.models.Blog;
 import com.ifcdpp.ifcdpp.models.Post;
 import com.ifcdpp.ifcdpp.repo.PostRepository;
@@ -36,9 +37,21 @@ public class PostService {
         return new Blog(posts, pagesNum);
     }
 
-    public void savePost(Post post) {
-        PostEntity entity = new PostEntity(post.getTitle(), post.getText());
-        postRepository.save(entity);
+    public Long savePost(Post post) {
+        PostEntity entity;
+        if (post.getId() != null) {
+            entity = postRepository.findById(post.getId()).orElseThrow(() -> new MessageException("Post not found"));
+            entity.setTitle(post.getTitle());
+            entity.setText(post.getText());
+        } else {
+            entity = new PostEntity(post.getTitle(), post.getText());
+        }
+        PostEntity newEntity = postRepository.save(entity);
+        return newEntity.getId();
+    }
+
+    public void deletePost(Long postId) {
+        postRepository.deleteById(postId);
     }
 
     public Post getPostById(Long id) {

@@ -76,6 +76,17 @@ public class PaymentService {
         PaymentEntity payment = paymentRepository.findByProduct_IdAndUser_Id(productId, user.getId())
                 .orElseThrow(() -> new MessageException("Payment not found"));
 
+        deletePayment(payment);
+    }
+
+    public void cancelAllPaymentsOnProducts(Long productId) {
+        List<PaymentEntity> entities = paymentRepository.findAllByProduct_Id(productId);
+        for (PaymentEntity payment : entities) {
+            deletePayment(payment);
+        }
+    }
+
+    private void deletePayment(PaymentEntity payment) {
         client.cancelBill(payment.getId());
         paymentRepository.delete(payment);
     }
